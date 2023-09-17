@@ -1,0 +1,24 @@
+- Cpp (C plus plus) é uma linguagem baseada em C no qual é possível trabalhar com o paradigma de orientação ao objeto.
+
+- A linguagem C++ permite que códigos em C sejam executados da mesma forma, uma vez que a linguagem C está inclusa dentro do C++.
+
++ Substitui o stdio.h para o IOSTTREAM
+
++ iostram: (io = input/output) serve para receber informações ou dar informações usuário pela stream.
+obs: é necessário usar o prefixo std::
+
+cout = printf ( use << )
+cin = scanf ( use >> )
+
+-- Dicas para lembrar:
+
+-  using namespace std;     //this way is no longer necessary to use the prefix std:: in the iostram functions
+-  std::endl;               // similar to "\n"
+-  #define var value;       // to define a cosntant
+
+
++ cmath: pacote que inclui funções matemáticas.
+
+ceil = round UP a value  ex: ceil(1.3) //2
+floor = round down a value  ex: floor(1.3) //1
+pow = power a number by another  ex: pow(2, 3) //8
