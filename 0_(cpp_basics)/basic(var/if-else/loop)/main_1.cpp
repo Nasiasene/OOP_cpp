@@ -40,5 +40,21 @@ int main(){
     double r = 22.4;
     cout << "\n\n\nArea of a circle with radius = 22.4: " << area(r);
 
+    int x = 0;
+    while(x < 2){
+        cout << x << endl;
+        x++;
+    };
+
+    do{
+        cout << x << endl;
+        x++;
+    }while(x < 4);
+
+
+    for (int i = 0; i < x; i++){
+        cout << "\nx= " << x << "\ni= " << i;
+    };
+
     return 0;
 } 
