@@ -1,0 +1,26 @@
++ A utilização de ponteiros funciona da mesma forma que na linguagem c.
+
++ Para criar um ponteiro basta fazer assim como uma variavel qualquer, entretanto, botando um * antes do seu nome.
+e.x
+<tipo_ptr> *p = <var>;  // Um ponteiro do tipo "tipo_ptr".
+
+- um ponteiro tem como seu valor uma POSIÇÃO DE MEMÓRIA.
+- para acessa-la basta: *p (desta forma, estarei acessando a VARIAVEL que o ponteiro esta APONTANDO.)
+- utiliza-se "&" para saber qual a posição de memoriaa de uma variavel qualquer.
+- nullptr é o ponteiro nulo ou = 0.
+
+
++ Referência
+- muito utilizado para utilizar como parametro de função.
+- tem um uso similar ao de ponteiros, uma vez ue serve para REFERENCIAR outra variavel.
+- referência tambem é chamado comumente de APELIDO, uma vez que atraves dela é possivel acessar/modificar a variavel que ela referencia de forma simples.
+- ela dividira a mesma posiçao de memoria que a variavel no qual ela referencia.
+- Ao contrário de um ponteiro, uma referência depois de inicializada não pode ser feita para se referir a um objeto diferente ou definir como nulo.
+e.x
+<tipo_var> & ref = <var>;
+-- em função:
+void func(int & x){...}
+int main(){
+    int x=0;
+    func(x);
+}
