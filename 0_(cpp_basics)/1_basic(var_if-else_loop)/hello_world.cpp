@@ -1,4 +1,4 @@
-#include <iostream>  //inout and output
+#include <iostream>  //input and output
 
 using namespace std;  // this way is no longer mandatory to use std:: 
 

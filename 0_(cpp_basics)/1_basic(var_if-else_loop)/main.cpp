@@ -29,6 +29,8 @@ int main(){
     cout << "Insert 1 to swap the variables or type anything else to not. " << endl;
     cin >> option;
 
+
+    //if_else
     if (option == 1){
         var3 = var1;
         var1 = var2;
@@ -40,6 +42,8 @@ int main(){
     double r = 22.4;
     cout << "\n\n\nArea of a circle with radius = 22.4: " << area(r);
 
+
+    //loops
     int x = 0;
     while(x < 2){
         cout << x << endl;
@@ -54,6 +58,14 @@ int main(){
 
     for (int i = 0; i < x; i++){
         cout << "\nx= " << x << "\ni= " << i;
+    };
+
+
+    //vectors
+    int vet[] = {0, 1, 2, 3 ,4};
+
+    for (int x : vet){        //iterates the vector
+        cout << x << endl;
     };
 
     return 0;

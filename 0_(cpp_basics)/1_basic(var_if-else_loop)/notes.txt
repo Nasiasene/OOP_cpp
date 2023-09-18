@@ -1,0 +1,24 @@
+- Cpp (C plus plus) is a language based on C in which it is possible to work with the object orientation paradigm.
+
+- The C++ language allows C codes to be executed in the same way, since the C language is included within C++.
+
++ Replaces stdio.h for IOSTTREAM
+
++ iostram: (io = input/output) used to receive information or give information to the user via the stream.
+Note: it is necessary to use the prefix std::
+
+cout = printf (use << )
+cin = scanf ( use >> )
+
+-- Tips to remember:
+
+- using namespace std; //this way is no longer necessary to use the prefix std:: in the iostram functions
+- std::endl; // similar to "\n"
+- #define var value; // to define the constant
+
+
++ cmath: package that includes mathematical functions.
+
+ceil = round UP a value ex: ceil(1.3) //2
+floor = round down a value ex: floor(1.3) //1
+pow = power a number by another ex: pow(2, 3) //8
