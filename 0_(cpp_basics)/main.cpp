@@ -17,6 +17,9 @@ class BubuDudu{
                 amor = "Bubu";
             }
         };
+        ~BubuDudu(){
+            cout << "Nada destro'i o amor." << endl;
+        }
 
         void amor_verdadeiro(){
             cout << "O amor verdadeiro de " << name << " e' " << amor << endl;

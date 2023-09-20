@@ -1,26 +1,29 @@
-+ A utilização de ponteiros funciona da mesma forma que na linguagem c.
++ The use of pointers works in the same way as in the c language.
 
-+ Para criar um ponteiro basta fazer assim como uma variavel qualquer, entretanto, botando um * antes do seu nome.
-e.x
-<tipo_ptr> *p = <var>;  // Um ponteiro do tipo "tipo_ptr".
++ To create a pointer, just do the same as any variable, however, putting a * in front of its name.
+ex
+<ptr_type> *p = <var>; // A pointer of type "ptr_type".
 
-- um ponteiro tem como seu valor uma POSIÇÃO DE MEMÓRIA.
-- para acessa-la basta: *p (desta forma, estarei acessando a VARIAVEL que o ponteiro esta APONTANDO.)
-- utiliza-se "&" para saber qual a posição de memoriaa de uma variavel qualquer.
-- nullptr é o ponteiro nulo ou = 0.
+- a pointer has as its value a MEMORY POSITION.
+- to access it just: *p (in this way, I will be accessing the VARIABLE that the pointer is POINTING TO.)
+- "&" is used to know the memory position of any variable.
+- nullptr is the null pointer or = 0.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-+ Referência
-- muito utilizado para utilizar como parametro de função.
-- tem um uso similar ao de ponteiros, uma vez ue serve para REFERENCIAR outra variavel.
-- referência tambem é chamado comumente de APELIDO, uma vez que atraves dela é possivel acessar/modificar a variavel que ela referencia de forma simples.
-- ela dividira a mesma posiçao de memoria que a variavel no qual ela referencia.
-- Ao contrário de um ponteiro, uma referência depois de inicializada não pode ser feita para se referir a um objeto diferente ou definir como nulo.
-e.x
-<tipo_var> & ref = <var>;
--- em função:
++ Reference
+- widely used as a function parameter.
+- has a similar use to pointers, as it is used to REFERENCE another variable.
+- reference is also commonly called NAME, since through it it is possible to access/modify the variable it references in a simple way.
+- it will share the same memory position as the variable in which it references.
+- Unlike a pointer, a reference once initialized cannot be made to refer to a different object or set to null.
+ex
+<var_type> & ref = <var>;
+-- in function:
 void func(int & x){...}
 int main(){
     int x=0;
     func(x);
 }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
