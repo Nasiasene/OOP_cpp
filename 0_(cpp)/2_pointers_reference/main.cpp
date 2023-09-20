@@ -18,13 +18,13 @@ int main(){
     cout << "A value: "<< a << endl;
     cout << "A memory adress: " << &a << endl;
 
-    //pointer
+    //Pointer:
     int *p = nullptr;
     p = &a;
     print_a(p);
 
 
-    //reference
+    //Reference:
     int x=2, y=3, z=0;
 
     soma_ref(x, y, z);
@@ -37,6 +37,14 @@ int main(){
     cout << "\n\nString: " << str << endl << "Ref: " << ref_str;
     ref_str = ref_str + "Sou brasileiro";
     cout << "\n\nString: " << str << endl << "Ref: " << ref_str;
+
+
+    //Array:
+    string names[] = {"DAVI", "NASIASENE"};
+    string names_2[2];
+
+    names_2[0] = "davi";
+    names_2[1] = "nasiasene";
 
     return 0;
 }

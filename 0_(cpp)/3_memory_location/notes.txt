@@ -1,0 +1,18 @@
++ Typedef reserve an keyword used to create a new type of data.
+
+
+typedef std::string str;  //If i use str is the same to use std::string.
+This way i can also use:
+    using str = std::string;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Memory adress: a location in memory where data is stored.
+                 a memory adress can be acessed with an &.
+
+int a;
+cout << &a;  //xxxxxx
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Dynamic memory = 

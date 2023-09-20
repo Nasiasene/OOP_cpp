@@ -1,0 +1,140 @@
++ The use of pointers works in the same way as in the c language.
+
+1.Pointers.
+2.Reference.
+3.Const.
+4.Arrays.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Pointers: variables that store a memory adress of another variable.
+
+- & = adress-of operator
+- * = deference operator (work with the variable value)
+
+- To create a pointer, just do the same as any variable, however, putting a * in front of its name.
+ex
+<ptr_type> *p = <var>; // A pointer of type "ptr_type".
+
+- to access the variable it just: *p (in this way, I will be accessing the VARIABLE that the pointer is POINTING TO.)
+
+* REMEBER: to reference the memory of an list, it's not necessary to use "&", because when you use the name of the list(WITHOUT INDEX), you are returning the memory adress of the list.
+
+-- nullptr: his mean that the pointer is pointing to anything.
+            is a good practice to initialize an pointer pointing to nullptr, this way, the nullptr is util to know if the pointer is pointing to some adress.
+
+int *pointer = nullptr;
+if (pointer == nullptr){ (...) }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Reference:
+- widely used as a function parameter.
+- has a similar use to pointers, as it is used to REFERENCE another variable.
+- reference is also commonly called APELIDO(pt), since through it it is possible to access/modify the variable it references in a simple way.
+- it will share the same memory position as the variable in which it references.
+- Unlike a pointer, a reference once initialized cannot be made to refer to a different object or set to null.
+
+ex
+<var_type> & ref = <var>;
+-- in function:
+void func(int & x){...}
+int main(){
+    int x=0;
+    func(x);
+}
+
+- Passing an variable as reference to an function will change the actual variable that the reference refers
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Const Parameter: is an parameter that is effectively READ-ONLY.
+                   useful for references and pointers.
+                   it's great to not change the real variable.
+                   impossible to change the variable value.
+
+ex
+void func(const int &x, const string *p, const bool f){
+    p = &x;    //ERRO
+    x = 22;    //ERRO
+    *p = "hi"; //ERRO
+    f = true;  //ERRO
+}
+//you CANT change the variable if it is an constant.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Arrays: a data structure that can hold multiple values that can be acessed by an index.
+array only suport variables that have the same datatype.
+
+<data_type> array[] = {<values>};
+
+- if you want to declare the values of the array after, you have to declare the length that the array will have.
+<datatype> array[<length>];
+
+to display every element in he array you have to loop and put every index (array[0] ...)
+
+for (int i = 0; i < sizeof(array)/sizeof(array[0]); i++){
+    cout << array[i];
+}
+
+------------------------------------------
+
+-- Foreach Loop: to iterate an array.
+
+for(<datatype> i : array) {     // ":" = in
+    cout << i;
+}
+
+------------------------------------------
+
+-- Passing arrays to a fucntion: when you pas an array into a function is no necessary to use [] (function(array))
+                                 but when you pass an array into a function, is necessary to give the length/size of the array (function(array, size))
+
+ex
+
+double func(double list[], int size){
+    (...)
+}
+int main(){
+    double list[](...);
+    int size = sizeof(list)/sizeof(list[0]);
+    func(list, size);
+}
+
+------------------------------------------
+
+--- sizeof(): is an function that return the size in bits of one variable, datatype, class, object etc.
+sizeof(<var>)
+
+double test = 2.5;
+sizeof(test);          //8
+sizeof(double);        //8
+sizeof(string);          //32
+
+double test2[2] = {2.5, 5.5};
+sizeof(test2)          //16
+
+int length(auto a){
+    return sizeof(a)/sizeof(a[0]);
+}
+
+sizeof(list)/sizeof(<datatype_list>)   ----> this is the length of the array.
+
+------------------------------------------
+
+--- fill(): fills a range of elements with a specified value.
+fill(begin_value, end_value, value);
+
+ex
+int list[size];
+fill(list, list + size, 0);          //{0, 0, (...) 0, 0}
+fill(list + size/2, list + size, 1); //{0, 0, (...) 1, 1}
+fill(list, list + size/2, 2);        //{2, 2, (...) 1, 1}
+
+------------------------------------------
+
+-- empty(): return true if the array is empty.
+list.emppty();
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

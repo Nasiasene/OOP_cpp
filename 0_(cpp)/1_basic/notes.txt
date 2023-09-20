@@ -133,6 +133,8 @@ string.at(<index>);            // returns a character at the given index.
 string.insert(<index>, <str>)  // Insert an string in the given index.
 string.find(<str>)             // give the firts index where the str appears in the string.
 string.erase(<first_index>, <last_index>)  // erase parte of the string.
+touper(string)                 // converts a given character to upercase
+tolower(string)                // converts a given character to lowercase
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

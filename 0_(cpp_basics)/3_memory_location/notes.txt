@@ -1,8 +1,0 @@
-+ Typedef reserve an keyword used to create a new type of data.
-
-
-typedef std::string str;  //If i use str is the same to use std::string.
-This way i can also use:
-    using str = std::string;
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

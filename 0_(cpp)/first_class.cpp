@@ -3,21 +3,21 @@
 
 using namespace std;
 
-class BubuDudu{
+class ShakipiyoGudetama{
     private:
         string name, amor;
     
     public:
-        BubuDudu(string n){
+        ShakipiyoGudetama(string n){
             name = n;
-            if (name == "Bubu" || name == "Maira"){
-                amor = "Dudu";
+            if (name == "Shaki" || name == "Maira"){
+                amor = "Gudetama";
             }
             else{
-                amor = "Bubu";
+                amor = "Shaki";
             }
         };
-        ~BubuDudu(){
+        ~ShakipiyoGudetama(){
             cout << "Nada destro'i o amor." << endl;
         }
 
@@ -28,8 +28,8 @@ class BubuDudu{
 };
 
 int main(){ 
-    BubuDudu bubu{"Maira"}, dudu{"Davi"};
+    ShakipiyoGudetama shaki{"Maira"}, gudetama{"Davi"};
 
-    bubu.amor_verdadeiro();
-    dudu.amor_verdadeiro();
+    shaki.amor_verdadeiro();
+    gudetama.amor_verdadeiro();
 }
