@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Classes is an evolution of structs, it is possible to have attributes and methods, public and private.
+
+Start class:
+class <class_name> {
+
+};
+
+* Set public/private:
+class <class_name>{
+    private:
+        (...) //generally declare attributes.
+    public:
+        (...) //constructor/destructor gets/sets
+}
+
+* Define Constructor/Destructor: It will have the same name as the class, there will be no return, you can use methods from the class itself.
+class <class_name>{
+    (...)
+    public:
+        <class_name>(attributes){
+            (...) //generally gives the value of the attributes.
+        }
+        ~<class_name>(){
+            (...) //generally empty, used when doing dynamic allocation within the class.
+        }
+}
+// NOTE: I can create several constructors, as long as each one differs in attributes, so it is possible to start a class in different ways, depending on the attributes passed at initialization.
+// NOTE2: I can initialize the constructor in other way:
+// -<name_class>(int dd, int mm, int yy) : d{dd}, m{mm}, y{yy} { }
+// -<name_class>()(int dd, int mm, int yy){d=dd; m=mm; y=yy;}                  //(same).
+
+* Define methods outside the class: it is necessary to initialize them inside the class (<func_type> <func_name>(attributes);), and then assign them outside ( <func_type> <class_name>::<func_name>(attributes){} )
+class <class_name>{
+    (...)
+    public:
+        <class_name>(attributes); //I can do the same with constructors and destructors.
+        <type1> <class_name1>(attributes);
+        <type2> <class_name2>(attributes);
+}
+<class_name>::<class_name>(attributes){} //constructor
+<func_type1> <class_name>::<func_name1>(attributes){}
+<func_type2> <class_name>::<func_name2>(attributes){}
+
+
+- Classes are a new user-defined type, containing 'characteristics' (attributes) and 'behaviors' (methods).
+- Objects are instances of a given class.
+ex class/object: Class: Item / Object: sword.
+
+- Classes:
+-- It is a user-defined type.
+-- Set of attributes (values) and methods (functions).
+-- Constructors, responsible for initializing the class and Destructors, responsible for finishing and cleaning.
+-- Members of a class are accessed through a "." for variables and a "->" for pointers.
+-- public members can be accessed inside and outside the class implementation, private members can only be accessed inside the class.
+-- note: struct is like a class in which all its members are public.
+
+- CONCEPT: Encapsulation = when we encapsulate certain attributes or methods of a class (through private) so that the user cannot interact with it.
+
+- remember, when you pass an parameter as const, he will never be changeble inside the funciton.
+--OBS: i can define a FUNCTION as a CONST, in this way it will never change the variables that surround them (GREAT FOR GETS FUNCTIONS)
+---ex  --->  void get_day() const {return day;}
+---When i want to change an variable inside an const function, when i declare this variable it has to have "multable" (ex: mutable int count;) //this way i can change this variable everywhere.
+--OBS2: i can define an OBJECT as CONST this way, when i declare an OBJECT Const its attributes will neer chenge.
+--ex  --->  const Date birthday(10, 8, 2003)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -46,6 +46,10 @@ int main(){
 
 - Passing an variable as reference to an function will change the actual variable that the reference refers
 
+OBS: when passing a value for referebce to an function is great to pass as a const, if you dont want to change the variable value.
+
+void x(const int &x){ (...) }
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 + Const Parameter: is an parameter that is effectively READ-ONLY.
