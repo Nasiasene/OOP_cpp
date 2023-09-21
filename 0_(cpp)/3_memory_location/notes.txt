@@ -15,4 +15,9 @@ cout << &a;  //xxxxxx
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-+ Dynamic memory = 
++ Dynamic memory: memory thats allocated after the program is already running ( dont know the actual space that i'ill use. )
+                  useful when we dont know how much memory we will need.
+                  using the 'new' operator to allocate the memory in the HEAP rather than the STACK.
+
+int *p = nullptr;
+p = new int;
