@@ -28,7 +28,7 @@ class ShakipiyoGudetama{
 };
 
 int main(){ 
-    ShakipiyoGudetama shaki{"Maira"}, gudetama{"Davi"};
+    ShakipiyoGudetama shaki("Maira"), gudetama("Davi");
 
     shaki.amor_verdadeiro();
     gudetama.amor_verdadeiro();

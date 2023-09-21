@@ -1,0 +1,154 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ object(basic): A collection of attributes and methods.
+                 They can have characteristics and could perform actions
+                 The components of an object can be public or private.
+
+----------------------------------------------------------
+
++ Class: Is the blue print of the objects.
+         The class is responsable for creating the base of the object, setting its methods and attributes.
+
+
+
+class Human{
+    private:  //attributes
+        string name, ocupation;
+        int age;
+        (...)
+
+    public:   //methods
+        void eat(){cout << "eat" << endl;}
+        void drink(string something){cout << "drink " << something << endl;}
+        (...)
+}
+
+int main(){
+    Human object_human;
+
+    object_human.name = "davi";
+    object_human.age = 14;
+
+    object_human.eat();
+    object_human.drink("milk")
+}
+
+----------------------------------------------------------
+
++ Contructors: Special method that is automatically called when an object is instantiated.
+               Useful for assigning values to attributes as arguments.
+               An construct is created inside the class and has the same name, and recieves as parameter the attributes of the class.
+
+
+class Human{
+    public:  
+        //attributes:
+        string name, ocupation;
+        int age;
+
+        //constructor:
+        Human(string nn, string ocupation, int aa){
+            name = nn;
+            this->ocupation = ocupation;  //  'this->' is used when the parameter has the same name as the attribute, "this" is to reference the attributes.
+            age = aa;
+        }
+
+        //methods:
+        (...)
+}
+
+int main(){
+    Human people("Davi", "Student", 20);
+}
+
+-----------------------------
+
+-- Overload Contructors: In the same class i can have more than one constructors that recieves diferent parameters
+
+class Human{
+    public:  
+        //attributes:
+        string name, ocupation;
+        int age;
+
+        //constructor:
+        Human(){} //No parameters.
+
+        Human(int aa){
+            age = aa;
+        }
+
+        Human(string nn, string ocupation, int aa){
+            name = nn;
+            this->ocupation = ocupation;  //  'this->' is used when the parameter has the same name as the attribute, "this" is to reference the attributes.
+            age = aa;
+        }
+
+        //methods:
+        (...)
+}
+
+in main(){
+    Human person1, person2(20), person3("Davi", "Student", 20);   //all 3 be created.
+}
+
+OBS: if you want to create an object without using the constructor(Not giving initials values) you should set in the constructor defaults values, or create an construct with no parameters.
+
+----------------------------------------------------------
+
++ gets/sets: usually we hide unnecessary data from outside a class using private:.
+             privates attributes can't be accessible outside the class.
+             get = functions that makes a private attribute READABLE.
+             set = functions that makes a private attribute WRITABLE.
+
+
+class Human{
+    private:  
+        //attributes:
+        string name, ocupation;
+        int age;
+
+    public:
+        //constructor:
+        (...)
+
+        //methods:
+        string get_name(){return name;}
+        string get_ocupation(){return ocupation;}
+        int get_age(){return age;}
+
+        void set_name(string n){name = n;}
+        void set_ocupation(string o){ocupation = o;}
+        void set_age(int a){age = a;}
+}
+
+----------------------------------------------------------
+
++ Inheritance: A class can recieve attributes and methods from another classes.
+               Person class inherit from a Human class.
+               Helps to reuse similar code found within multiple classes.
+
+class Animal{
+    public:
+        bool alive = true;
+
+        void eat(){cout << "Eat" << endl;}
+}
+
+class Dog : public Animal {  //Dog is inherit from the Animal class in a public way(this way, everything thats public in Animal is public in Dog, and everything thats private is private too)
+    public:
+        void bark(){cout << "WOOF" << endl;}
+}
+
+class Cat : private Animal {  //cat is inherit from the Animal class in a prvate way(this way, everything thats public in Animal is private in Cat, and everything thats private in Animal cant 
+                               //be used in Cat)
+    public:
+        void meow(){cout << "Meow" << endl;}
+}
+
+int main(){
+    Dog dog;
+    cout << dog.alive;
+    dog.eat();
+
+}
