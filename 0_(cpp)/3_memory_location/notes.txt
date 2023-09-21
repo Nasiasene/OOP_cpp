@@ -18,6 +18,125 @@ cout << &a;  //xxxxxx
 + Dynamic memory: memory thats allocated after the program is already running ( dont know the actual space that i'ill use. )
                   useful when we dont know how much memory we will need.
                   using the 'new' operator to allocate the memory in the HEAP rather than the STACK.
+                  the new operator return an adress.
+                  the 'delete' operator free the memory of one adress.
 
-int *p = nullptr;
-p = new int;
+for variables:
+int *a = nullptr;
+*a = new int;
+delete a;
+
+for arrays:
+int *p_array = nullptr, tam;
+p_array = new char[tam];                    //the memory position of the pointer is now the adress that the 'new' return.
+                                            //Now you use the pointer as an variable.
+delete[] p_array;   //when you delete an array, is necessary to put the '[]'.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Recursion: is an programing technique where a function evokes itself.
+
+ex:
+Iteractive:
+void walk(int steps){
+    for(int i = 0; i < steps; i++){
+        cout << "You walk";
+    }
+}
+
+int factorial(int num){
+    int new_num = 1;
+    for(int i = num; i != 0; i--){
+        new_num = new_num * i;
+    }
+    return new_num;
+}
+
+Recursive:
+void walk(int steps){
+    if(steps > 0){
+        cout << "You walk";
+        walk(steps-1);
+    }
+}
+
+int factorial(int num){
+    if (num > 1){
+        return num * factorial(num-1);
+    }
+    else
+        return 1;
+}
+
+//OBS: stack overflow = when a prongram attempts to use more space than is available on the slack.
+//OBS2: when you using a recursive function, remenber to make an breaking point(an if else etc).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Function Templates: describe what a function looks like.
+                      can be used to generate as many overload functions as needed, each using diferent data types.
+
+when i use an tamplate, i can use as many datatype variable that i want, it works seemly like the "auto" dadatype.( OBS: i can use templates and auto ).
+when i create an template with one typename, it only can have one datatype, if i want to work with multiples datatypes inside an function, i will have to create others typenames.
+
+ex
+template <typename T> //declare onde dadatype template with name: T;
+T max(T x){           //declare an T function that recieve a T variable. (think T as Thing). 
+    return x;
+}
+
+ex2:
+template <typename T, typename U>
+auto max(T x, U y){
+    return (x > y) ? x : y;
+}
+
+OBS: remember, onde template typename cannot recieve two diferents datatype.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Structs: A structure group related variables under one name, one struct can contain many diferent datatypes.
+           Variables in a struct are known as 'members' and can be acessed with an "."(class member operator).
+           Think as a new type of datatype, or an array with many diferent datatypes storage.
+
+struct <name_struct>{
+    <datatype> <var1>;
+    <datatype> <var2> = <default_value>;
+}
+
+int main(){
+    <name_struct> <variable>{<value_var1>, <value_var2>};
+    <variable>.<var1> = (...)
+}
+
+
+- using pointers to an struct object, to acess the members you no longer use "." but instead "->'
+
+ex:
+struct_name *pStruct = &struct_var;
+pStruct->member_struct = (...); 
+(*pStruct).member_struct = (...);
+
+-----------------------------------------------------------------------------
+
+-- Enums: A user-defined datatype that consists of paired named-integer constant.
+          Similar to switch case and to structs.
+
+enum eDay{
+    sunday = 0,
+    monday = 1,
+    tuesday = 2,
+    wednesday = 3,
+    thursday = 4,
+    friday = 5,
+    saturday = 6
+};
+
+OBS: to divide enums members we use ","
+
+int main(){
+    eDay today = 0;          // 0 = sunday
+    eDay tomorrow = monday;  // monday = 1
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
