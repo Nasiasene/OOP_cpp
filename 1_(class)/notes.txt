@@ -15,6 +15,7 @@ class <class_name>{
         (...) //constructor/destructor gets/sets
 }
 
+
 * Define Constructor/Destructor: It will have the same name as the class, there will be no return, you can use methods from the class itself.
 class <class_name>{
     (...)
@@ -30,6 +31,7 @@ class <class_name>{
 // NOTE2: I can initialize the constructor in other way:
 // -<name_class>(int dd, int mm, int yy) : d{dd}, m{mm}, y{yy} { }
 // -<name_class>()(int dd, int mm, int yy){d=dd; m=mm; y=yy;}                  //(same).
+
 
 * Define methods outside the class: it is necessary to initialize them inside the class (<func_type> <func_name>(attributes);), and then assign them outside ( <func_type> <class_name>::<func_name>(attributes){} )
 class <class_name>{
@@ -48,6 +50,7 @@ class <class_name>{
 - Objects are instances of a given class.
 ex class/object: Class: Item / Object: sword.
 
+
 - Classes:
 -- It is a user-defined type.
 -- Set of attributes (values) and methods (functions).
@@ -56,7 +59,9 @@ ex class/object: Class: Item / Object: sword.
 -- public members can be accessed inside and outside the class implementation, private members can only be accessed inside the class.
 -- note: struct is like a class in which all its members are public.
 
+
 - CONCEPT: Encapsulation = when we encapsulate certain attributes or methods of a class (through private) so that the user cannot interact with it.
+
 
 - remember, when you pass an parameter as const, he will never be changeble inside the funciton.
 --OBS: i can define a FUNCTION as a CONST, in this way it will never change the variables that surround them (GREAT FOR GETS FUNCTIONS)
@@ -65,5 +70,20 @@ ex class/object: Class: Item / Object: sword.
 --OBS2: i can define an OBJECT as CONST this way, when i declare an OBJECT Const its attributes will neer chenge.
 --ex  --->  const Date birthday(10, 8, 2003)
 
+
+- STATIC: used to create variables/functions of a class that can be used by all objects in the class (at the same time).
+--To create a static variable/func simply apply the name "static" before declaring the var/func type. (the class is created private like any other, thus having its get/set also static)
+--if I change its value in any object, it will change in all of them.
+--static variables in a class belonging to class and not objects.
+--To call a static variable, because it belongs to the class and not the object, it is called as follows: <class_name>::<static_name> -> Class::count -> Class::count()
+--They can be called by the object itself as well: <object>.count -> <object>.count()
+
+
+-THIS: is a c++ keyword in which it is an implicit pointer that points to the current object that is calling a method or function.
+
+
+-CONCEPT : Class Composition = a class can be composed of other classes.
+--Composition is a way of establishing relationships between classes, where a class "owns" or "contains" objects from other classes as its data members.
+--Composition is useful for creating complex objects by breaking functionality into smaller, reusable parts, improving code modularity and maintainability.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,28 @@
+Banking Control System with Operations
+ 
+Description:
+You have been hired to develop a banking control system for a financial institution.
+The system must allow the management of bank accounts, withdrawals, deposits, operations and reports.
+Create classes that represent each of these entities and explore programming concepts
+object-oriented like:
+    - class declaration, object instantiation
+    - access and modification methods (gets and sets)
+    - object arrays
+    - constructor and destructor methods
+    - use of dynamically allocated attributes
+    - different types of composition
+ 
+Requirements:
+ 
+Create a Customer class that contains information about the bank's customers, such as name, CPF and address.
+Create an Operation class that represents the operations carried out on the accounts. Each operation must have a type (withdrawal or deposit) and an associated value.
+Create an Account class that represents bank accounts. Each account must have an account number, an associated customer, a balance and a list of operations carried out.
+Create a Bank class that manages bank accounts. The class must contain a dynamic array of accounts, allowing accounts to be added and removed dynamically.
+ 
+Define relationships between classes using different types of composition.
+ 
+Implement methods to create accounts, make deposits, withdrawals, display statements and account reports in the system.
+ 
+Use constructor methods to initialize objects and destructor methods to free dynamically allocated memory.
+ 
+Create a test function that demonstrates the creation and use of the classes, including creating customers, bank accounts, bank transactions, and bank management actions.
