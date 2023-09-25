@@ -1,0 +1,55 @@
+Bakery Management System
+
+Create a bakery management system using object-oriented programming in C++. The system must allow the registration of products, suppliers, customers and employees, as well as the sale and delivery of products.
+
+Use the following object-oriented programming concepts:
+
+Class declaration: Create classes to represent products, suppliers, customers and employees. (3.0)
+Object instantiation: Create objects from these classes to represent specific instances of products, suppliers, customers. (1.0)
+Object Arrays: Use arrays to store collections of products, suppliers, customers, and employees. (2.0)
+Constructor and destructor methods: Use constructor methods to initialize object attributes and destructor methods to free resources allocated by objects. (2.0)
+Dynamically allocated attributes: Use dynamically allocated attributes to store information whose size is not known at compile time. (2.0)
+Different types of composition: Use composition and aggregation to create relationships between classes. (2.0)
+UML Diagram:
+
++----------------+       +----------------+
+|    Product     |       |   Supplier     |
++----------------+       +----------------+
+| - name         |       | - name         |
+| - price        |<-----+| - adress       |
+| - validity     |       +----------------+
+| + get_name()   |             
+| + get_price()  |             
++----------------+             
+   |                           
+   |                           
+   |                           
++----------------+             
+|     Sell       |
++----------------+
+| - date         |
+| - total_value  |
+| + get_date()   |
+| + get_value()  |
++----------------+
+   |
+   |
+   |
++----------------+
+|     Client     |
++----------------+
+| - name         |
+| - adress       |
+| + get_name()   |
+| + get_adr()    |
++----------------+
+
+Description of classes:
+
+Product: represents a bakery product. It has attributes such as name, price. It has methods to access this information.
+Supplier: represents a bakery supplier. It has attributes such as name and address. It has methods to access this information.
+Sale: represents a sale made by the bakery. It has attributes such as date of sale and total value. It has methods to access this information.
+Customer: represents a customer of the bakery. It has attributes such as name and address. It has methods to access this information.
+
+Implement all classes and methods and make them be used in a situation where two sales with 2 and 3 products are simulated
+each, for different customers.

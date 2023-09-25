@@ -1,0 +1,58 @@
+Mechanical Workshop Management System
+
+Create a machine shop management system using object-oriented programming in C++. The system must allow the registration of vehicles, customers, services and employees, as well as the performance and payment of services.
+
+Use the following object-oriented programming concepts:
+
+Class declaration: Create classes to represent vehicles, customers, services and employees. (3.0)
+Object instantiation: Create objects from these classes to represent specific instances of vehicles, customers, services, and employees. (1.0)
+Object Arrays: Use arrays to store collections of vehicles, customers, services, and employees. (2.0)
+Constructor and destructor methods: Use constructor methods to initialize object attributes and destructor methods to free resources allocated by objects. (2.0)
+Dynamically allocated attributes: Use dynamically allocated attributes to store information whose size is not known at compile time. (2.0)
+Different types of composition: Use composition and aggregation to create relationships between classes. (2.0)
+UML Diagram:
+
++----------------+       +----------------+
+|     Vehicle    |       |     Client     |
++----------------+       +----------------+
+| - model        |       | - name         |
+| - year         |       | - phone        |
+| - plate        |       +----------------+
+| + get_model()  |             |
+| + get_year()   |             |
+| + get_plate()  |             |
++----------------+             |
+   |                           |
+   |                           |
+   |                           |
++----------------+             |
+|     Service    |<------------+
++----------------+
+| - description  |
+| - value        |
+| + get_desc()   |
+| + get_value()  |
++----------------+
+   |
+   |
+   |
++----------------+
+|    Employee    |
++----------------+
+| - name         |
+| - position     |
+| + get_name()   |
+| + get_posit()  |
++----------------+
+
+Description of classes:
+
+Vehicle: represents a vehicle serviced by the workshop. It has attributes such as model, year and license plate. It has methods to access this information.
+Customer: represents a customer of the workshop. It has attributes such as name and telephone number. It has methods to access this information.
+Service: represents a service performed by the workshop. It has attributes such as description and value. It has methods to access this information.
+Employee: represents a workshop employee. It has attributes such as name and title. It has methods to access this information.
+
+-----------------------
+
+Implement all classes and methods and make them be used in a situation where services are simulated for 3 different clients.
+
