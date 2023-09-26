@@ -1,0 +1,68 @@
++ Operator overloading: Is a feature that allows programmers to define custom behavior of operators for custom data types (classes or structures).
+                        This means that you can use operators, such as +, -, *, /, ==, !=, etc., with objects of your own classes, giving them specific meanings.
+
+- Overloadable Operators: +, -, *, /, ==, <=, !=, <<, >>, (), [], &, delete, new, ->, ++, --, +=  etc.
+OBS:'.' and '::', cant be overloaded.
+
+- Sintax: 
+The overload is declared inside the public part of an class.
+
+*Binary*
+<return> operator<op>(<object_same_class>){  //recieves an parameter
+    (...)
+    return <object_same_class/bool/etc>;
+}
+
+*Unary*
+<return> operator<op>(){                     //recieves an parameter
+    (...)
+}
+
+OBS: is usually used a passage by reference(&) as a parameter
+OBS: binary operators continue to be binary( x + y // x == y ) and unary continue to be unary ( ++ // -= )
+OBS: can use (object.operator<sign>())
+
+---------------------------------------------
+
+- Functions and Classes friend: 
+-- A "friend" function is a function that is allowed to access the private members of a class, even if it is not a member of the class. 
+-- Declare the function as "friend" inside the class.
+-- Are useful when you want specific parts of code, which are not members of the class, to access private information of objects of that class.
+-- A common example is in overloaded operators, such as the exit operator (<<) to print objects of a class. This "friend" function can access private members to print object details.
+
+ex(sintax):
+class Class {
+    private:
+        int private_num;
+    public:
+        friend void friend_func(Class obj);    //declare
+};
+
+OBS: An friend class is NOT a member of the class. But can access the public and private members of this class.
+
+---------------------------------------------
+
+I can use functions friend to create an overload operator.
+- Is to manipulate cout and cin. (as friend)
+insede class:
+friend ostream& operator<<(ostream&, Class&);
+outside class:
+ostream& operator<<(ostream& o, Class& cc){
+    out << (...);
+}
+
+OBS: ostream = output: ostream(<<) // input: istream(>>)
+
+- overload cin/cout HAS TO BE FRIEND.
+- ALWAYS use reference(&).
+- Is apropriated to return an reference to the manipulated operator, to be possible to do: cout << object1 << object2
+
+EXTRA:  Whenever you pass an object as an parameter to a function, it is recommended that it be by REFERENCE.
+
+
+- I can oveerload an casting operator (int(), double() ...).
+- i can do an casting to another Class.
+- Overload an casting operator has no return type.
+- has to be INSIDE the class, NOT FRIEND.
+
+EXTRA: Recommended to use friend only to overload cin and cout
