@@ -4,161 +4,178 @@
 
 using namespace std;
 
-class Pessoa{
+class Pessoa{  //Classe abstrata Pessoa(mae)
+    //Atributos privados da classe Pessoa
    string nome;
-   int cpf;
+   int idade;
 
    public:
-      Pessoa(string nn, int cc) : nome{nn}, cpf{cc} {}
+      //Construtores e Destrutores.
+      Pessoa(string nn, int id) : nome{nn}, idade{id} {}
       ~Pessoa() {}
 
+
+      //Metodo virtual puro.
       virtual void exibir_detalhes() = 0;
 
+      //Sobrecarga do operador de output.
       friend ostream& operator<<(ostream& out, Pessoa& pp){
-         out << "\nNome: " << pp.nome << ", CPF: " << pp.cpf << endl;
+         out << "\nNome: " << pp.nome << ", Idade: " << pp.idade << endl;
          return out;
       }
 
-      bool operator==(const Pessoa& pp){
-         if (this->cpf == pp.cpf)
-            return true;
-         return false;
-      }
 
+      //GETS
       string get_nome(){return nome;}
-      int get_cpf(){return cpf;}
+      int get_idade(){return idade;}
 };
 
-class Passageiro : public Pessoa{
-   int cartao_fidelidade;
+class Paciente : public Pessoa{ //Classe Paciente herda publicamente de Pessoa.
+   //Atributos privados da classe Paciente.
+   int numero_paciente;
+   string condicao;
 
    public:
-      Passageiro(string nn, int cc, int cf) : Pessoa(nn, cc), cartao_fidelidade{cf} {}
-      ~Passageiro() {}
+      //Construtores e Destrutores.
+      Paciente(string nn, int id, int np, string cc) : Pessoa(nn, id), numero_paciente{np}, condicao{cc} {}
+      ~Paciente() {}
 
+      //Metodo virtual sobrescrito.
       virtual void exibir_detalhes() override  {
-         cout << "\nNome: " << this->get_nome() << "\nCPF: " << this->get_cpf() << "\nCartao Fidelidade: " << cartao_fidelidade;
+         cout << "\nNome: " << this->get_nome() << "\nIdade: " << this->get_idade() << "\nNumero Paciente: " << numero_paciente << "\nCondicao: " << condicao << endl;
       }
 
-      friend ostream& operator<<(ostream& out, Passageiro& pp){
-         out << "\nNome: " << pp.get_nome() << ", CPF: " << pp.get_cpf() << pp.cartao_fidelidade;
+        //Sobrecarga do operador de output.
+      friend ostream& operator<<(ostream& out, Paciente& pp){
+         out << "\nNome: " << pp.get_nome() << "\nIdade: " << pp.get_idade() << "\nNumero Paciente: " << pp.get_numero_paciente() << "\nCondicao: " << pp.get_condicao() << endl;
          return out;
       }
-      bool operator==(Passageiro& p){
-         if (this->get_cpf() == p.get_cpf())
-            return true;
-         return false;
-      }
+
+      //GETS
+      int get_numero_paciente(){return numero_paciente;}
+      string get_condicao(){return condicao;}
 };
 
-
-class Voo{
-   int numero_voo;
-   string origem;
-   string destino;
-   int data;
-   int horario;
+class Medico : public Pessoa{  //Classe Medico herda publicamente de Pessoa.
+  //Atributos privados da classe Medico.
+   string especialidade;
+   string crm;
 
    public:
-      Voo(int nv, string oo, string dd, int dt, int hh) : numero_voo{nv}, origem{oo}, destino{dd}, data{dt}, horario{hh} {}
-      ~Voo() {}
+      //Construtores e Destrutores.
+      Medico(string nn, int id, string ee, string cc) : Pessoa(nn, id), especialidade{ee}, crm{cc} {}
+      ~Medico() {}
 
-      void exibir_detalhes(){
-         cout << "\nNumero do voo: " << numero_voo << "\nOrigem: " << origem << "\nDestino: " << destino << "\nData: " << data << "\nHorario: " << horario;
+        //GETS
+      string get_especialidade(){return especialidade;}
+      string get_crm(){return crm;}
+
+        //Metodo virtual sobrescrito.
+      virtual void exibir_detalhes() override  {
+         cout << "\nNome: " << this->get_nome() << "\nIdade: " << this->get_idade() << "\nEspecialidade: " << especialidade << "\nCRM: " << crm << endl;
       }
-      friend ostream& operator<<(ostream& out, Voo& vv){
-         out << "\nNumero do voo: " << vv.numero_voo << "\nOrigem: " << vv.origem << "\nDestino: " << vv.destino << "\nData: " << vv.data << "\nHorario: " << vv.horario;
+
+        //Sobrecarga do operador de output.
+      friend ostream& operator<<(ostream& out, Medico& pp){
+         out << "\nNome: " << pp.get_nome() << "\nIdade: " << pp.get_idade() << "\nEspecialidade: " << pp.get_especialidade() << "\nCRM: " << pp.get_crm() << endl;
          return out;
       }
 };
 
-class Reserva{
-   Passageiro *passageiro;
-   Voo *voo;
-   string classe;
-   string assento;
 
-   public: 
-      Reserva(Passageiro *pp, Voo *vv, string cc, string aa) : passageiro{pp}, voo{vv}, classe{cc}, assento{aa} {}
-      ~Reserva() {
-         delete passageiro;
-         delete voo;
-      }
-
-      void exibir_detalhes(){
-         cout << "Passageiro: ";
-         passageiro->exibir_detalhes();
-         cout << "\nVoo: ";
-         voo->exibir_detalhes();
-         cout << "Classe: " << classe << "\nAssento: " << assento;
-      }
-      friend ostream& operator<<(ostream& out, Reserva& rr){
-         out << "------------\nPassageiro: " << rr.passageiro << "------------\nVoo: " << rr.voo << endl <<"Classe: " << rr.classe << "\nAssento: " << rr.assento;
-         return out;
-      }
-      Passageiro *get_passageiro(){return passageiro;}
-};
-
-class Companhia_aerea{
-   vector<Voo*> voos;
-   vector<Reserva*> reservas;
+class Procedimento{  //Classe Procedimento.
+    //Atributos privados da classe Procedimento.
+   string descricao;
+   string data;
 
    public:
-      Companhia_aerea() {}
-      ~Companhia_aerea() {
-         voos.clear();
-         reservas.clear();
+        //Construtores e Destrutores.
+      Procedimento(string dd, string da) : descricao{dd}, data{da} {}
+        ~Procedimento() {}
+
+
+        //Metodo virtual sobrescrito.
+        void exibir_detalhes(){
+         cout << "\nDescricao: " << descricao << "\nData: " << data << endl;
+        }
+
+        //Sobrecarga do operador de output.
+        friend ostream& operator<<(ostream& out, Procedimento& pp){
+         out << "\nDescricao: " << pp.descricao << "\nData: " << pp.data << endl;
+         return out;
+        }
+};
+
+class Hospital{ //Classe Hospital.
+   vector<Paciente*> pacientes;
+   vector<Medico*> medicos;
+   vector<Procedimento*> procedimentos;
+
+   public:
+     //Construtores e Destrutores.
+      Hospital() {}
+      ~Hospital() {
+         pacientes.clear();
+         medicos.clear();
+         procedimentos.clear();
       }
 
-      void adicionar_voo(Voo* vv){
-         voos.push_back(vv);
+        //SETS(append) 
+      void adicionar_paciente(Paciente* pp){pacientes.push_back(pp);}
+      void adicionar_medico(Medico* mm){medicos.push_back(mm);}
+      void registrar_procedimento(Paciente* pp, Medico* mm, Procedimento* prr){
+         
+
+         procedimentos.push_back(prr);
       }
-      void fazer_reserva(Passageiro* pp, Voo* vv, string cc, string aa){
-         for (int i = 0; i < reservas.size(); i++){
-            if (reservas[i]->get_passageiro() == pp){
-               cout << "Passageiro ja fez reserva" << endl;
-            }
+
+      //GETS(cout)
+      void listar_procedimentos(){
+         for (int i = 0; i < procedimentos.size(); i++){
+            cout << *procedimentos[i] << endl;
          }
-         Reserva* rr = new Reserva(pp, vv, cc, aa);
-         reservas.push_back(rr);
       }
 
-      void listar_voos_disponiveis(){
-         for (int i = 0; i < voos.size(); i++){
-            voos[i]->exibir_detalhes();
-            cout << endl;
+      void listar_pacientes(){
+         for (int i = 0; i < pacientes.size(); i++){
+            cout << *pacientes[i] << endl;
          }
       }
-
-      void listar_reservas(){
-         for (int i = 0; i < reservas.size(); i++){
-            reservas[i]->exibir_detalhes();
-            cout << "\n\n";
+      void listar_medicos(){
+         for (int i = 0; i < medicos.size(); i++){
+            cout << *medicos[i] << endl;
          }
       }
 };
 
 
 int main(){
-    /*Crie uma função `main()` que simule uma companhia aérea, com pelo menos 3 voos disponíveis e 2 reservas feitas por 
-    passageiros diferentes. Utilize sobrecarga de operadores para facilitar a exibição das informações dos voos, reservas e passageiros.
-    */
-   Passageiro *p1 = new Passageiro("Davi", 111, 1);
-   Passageiro *p2 = new Passageiro("Nasiasene", 222, 2);
+    Paciente *p1 = new Paciente("Joao", 20, 1, "Normal");
+    Paciente *p2 = new Paciente("Maria", 30, 2, "Normal");
+    Paciente *p3 = new Paciente("Pedro", 40, 3, "Normal");
 
-   Voo *v1 = new Voo(1, "JP", "SP", 2021, 10);
-   Voo *v2 = new Voo(2, "JP", "CG", 2021, 11);
-   Voo *v3 = new Voo(3, "JP", "RJ", 2021, 12);
+    Medico *m1 = new Medico("Jose", 40, "Cardiologista", "CRM1");
+    Medico *m2 = new Medico("Ana", 50, "Clinico Geral", "CRM2");
 
-   Companhia_aerea *c1 = new Companhia_aerea();
-   c1->adicionar_voo(v1);
-   c1->adicionar_voo(v2);
-   c1->adicionar_voo(v3);
+   Hospital *h1 = new Hospital();
 
-   c1->fazer_reserva(p1, v1, "VIP", "A1");
-   c1->fazer_reserva(p2, v2, "ECO", "A2");
+    h1->adicionar_paciente(p1);
+    h1->adicionar_paciente(p2);
+    h1->adicionar_paciente(p3);
 
-   c1->listar_voos_disponiveis();
-   cout << "\n------------------------------------\n";
-   c1->listar_reservas();
+    h1->adicionar_medico(m1);
+    h1->adicionar_medico(m2);
+
+    h1->listar_pacientes();
+    cout << "\n------------------------\n";
+    h1->listar_medicos();
+
+    Procedimento *pr1 = new Procedimento("Exame de sangue", "01/01/2020");
+    Procedimento *pr2 = new Procedimento("Exame de urina", "02/01/2020");
+
+    h1->registrar_procedimento(p1, m1, pr1);
+    h1->registrar_procedimento(p2, m2, pr2);
+
+    cout << "\n------------------------\n";
+    h1->listar_procedimentos();
 }
