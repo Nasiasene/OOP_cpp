@@ -130,7 +130,7 @@ class Bank{
 
 int main(){
     Client *c1 = new Client("Nasiasene", "123456789-00", "Street 1");
-    Client *c2 = new Client("davi", "987654321-00", "Street 2");
+    Client *c2 = new Client("Davi", "987654321-00", "Street 2");
 
     Account *acc1 = new Account(1, c1, 1000.0);
     Account *acc2 = new Account(2, c2, 2000.0);

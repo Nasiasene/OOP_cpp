@@ -1,0 +1,34 @@
+
+**Exercício: Sistema de gerenciamento de funcionários de uma empresa**
+
+Considere um sistema de gerenciamento de funcionários em uma empresa. Crie as seguintes classes:
+
+1. **`funcionario`** (classe base)
+   - Atributos privados: `nome`, `idade`.
+   - Método construtor para inicializar `nome` e `idade`.
+   - Método `exibir_detalhes()` que exibe informações gerais do funcionário.
+   - Sobrecarga do operador `<<` para exibir detalhes do funcionário.
+   
+2. **`gerente`** (herda publicamente de `funcionario`)
+   - Atributos privados adicionais: `departamento`, `nivel_acesso`.
+   - Método construtor que chama o construtor da classe base e inicializa o `departamento` e `nivel_acesso`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de gerentes, incluindo o departamento e o nível de acesso.
+   - Implementa um método público `definir_nivel_acesso()` que permite configurar o nível de acesso do gerente.
+
+3. **`desenvolvedor`** (herda protegido de `funcionario`)
+   - Atributos privados adicionais: `linguagem_programacao`.
+   - Método construtor que chama o construtor da classe base e inicializa a `linguagem_programacao`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de desenvolvedores, incluindo a linguagem de programação.
+
+4. **`analista`** (herda privado de `funcionario`)
+   - Atributos privados adicionais: `projeto_atual`.
+   - Método construtor que chama o construtor da classe base e inicializa o `projeto_atual`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de analistas, incluindo o projeto atual.
+   - Implementa um método público `alterar_projeto()` que permite aos analistas alterar o projeto atual.
+
+5. **`funcionario_estagiario`** (herda de `desenvolvedor` e `analista`)
+   - Atributos privados adicionais: `duracao_estagio`.
+   - Método construtor que chama os construtores das classes base e inicializa a `duracao_estagio`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de estagiários, incluindo a duração do estágio.
+
+Agora, crie na função main() objetos dessas classes e demonstre as relações de herança e acesso aos membros de cada classe. Certifique-se de criar instâncias de todas as classes e demonstrar como os atributos e métodos herdados são acessados em cada caso.

@@ -5,24 +5,24 @@ using namespace std;
 
 class ShakipiyoGudetama{
     private:
-        string name, amor;
+        string name, love;
     
     public:
         ShakipiyoGudetama(string n){
             name = n;
             if (name == "Shaki" || name == "Maira"){
-                amor = "Gudetama";
+                love = "Gudetama";
             }
             else{
-                amor = "Shaki";
+                love = "Shaki";
             }
         };
         ~ShakipiyoGudetama(){
-            cout << "Nada destro'i o amor." << endl;
+            cout << "Love is beautiful." << endl;
         }
 
-        void amor_verdadeiro(){
-            cout << "O amor verdadeiro de " << name << " e' " << amor << endl;
+        void true_love(){
+            cout << "The true love of " << name << " is " << love << endl;
         };
 
 };
@@ -30,6 +30,6 @@ class ShakipiyoGudetama{
 int main(){ 
     ShakipiyoGudetama shaki("Maira"), gudetama("Davi");
 
-    shaki.amor_verdadeiro();
-    gudetama.amor_verdadeiro();
+    shaki.true_love();
+    gudetama.true_love();
 }
