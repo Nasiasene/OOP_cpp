@@ -1,0 +1,44 @@
+3. Airline Management System (5.0 points)
+
+You will create a management system for an airline company. The system should handle passengers, flights, reservations, and travel-related information.
+
+Create the following classes:
+
+person (abstract base class)
+
+Private attributes: name, cpf (taxpayer identification number).
+Constructor method to initialize name and cpf.
+Pure virtual method display_details() that displays general information about the person.
+Overload the << operator to display person details.
+Overload the == operator to compare if one person is equal to another based on their CPF.
+passenger (inherits from person)
+
+Additional private attribute: frequent_flyer_card.
+Constructor method that calls the base class constructor and initializes frequent_flyer_card.
+Overridden display_details() method to display specific passenger information, including the frequent flyer card number.
+Overload the << operator to display passenger details.
+flight
+
+Private attributes: flight_number, origin, destination, date, time.
+Constructor method to initialize flight_number, origin, destination, date, and time.
+Method display_details() that displays general flight information.
+Overload the << operator to display flight details.
+reservation
+
+Private attributes: passenger, flight, class, seat.
+Constructor method to initialize passenger, flight, class, and seat.
+Method display_details() that displays reservation information.
+Overload the << operator to display reservation details.
+airline_company
+
+Private attributes:
+A dynamic vector of flight objects to track available flights.
+A dynamic vector of reservation objects to track made reservations.
+Public methods:
+add_flight(flight* f): Adds a flight to the list of available flights.
+make_reservation(passenger* p, flight* f, std::string class, std::string seat): Registers a flight reservation for a passenger (checks if there is already an identical passenger on the same flight before adding - use operator overloading).
+list_available_flights(): Lists all available flights with details.
+list_reservations(): Lists all made reservations with details.
+Create a main() function that simulates an airline company, with at least 3 available flights and 2 reservations made by different passengers. Use operator overloading to facilitate displaying flight, reservation, and passenger information.
+
+Ensure you add specific details to each class and properly handle dynamic resource allocation and memory release in constructors and destructors.

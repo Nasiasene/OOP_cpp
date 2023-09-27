@@ -1,0 +1,46 @@
+1. Hospital Management System (5.0 points)
+
+You have been hired to develop a management system for a hospital. The system should handle patients, doctors, and medical procedures. The goal of the system is to allow the registration of patients, assignment of doctors to patients, registration of medical procedures, and querying of information.
+
+Create the following classes:
+
+person (abstract base class)
+
+Private attributes: name, age.
+Constructor method to initialize name and age.
+Pure virtual method display_details() that displays general information about the person.
+Overload the << operator to display person details.
+patient (inherits from person)
+
+Additional private attributes: patient_number, condition.
+Constructor method that calls the base class constructor and initializes patient_number and condition.
+Overridden display_details() method to display specific patient information, including the patient's number and condition.
+Overload the << operator to display patient details.
+doctor (inherits from person)
+
+Additional private attributes: specialization, license_number.
+Constructor method that calls the base class constructor and initializes specialization and license_number.
+Overridden display_details() method to display specific doctor information, including their specialization and license number.
+Overload the << operator to display doctor details.
+procedure
+
+Private attributes: description, date.
+Constructor method to initialize description and date.
+Method display_details() that displays information about the procedure.
+Overload the << operator to display procedure details.
+hospital
+
+Private attributes:
+A dynamic vector of pointers to patient to store all patients.
+A dynamic vector of pointers to doctor to store all doctors.
+A dynamic vector of procedure objects to track medical procedures.
+Public methods:
+add_patient(patient* pat): Adds a patient to the list of patients.
+add_doctor(doctor* doc): Adds a doctor to the list of doctors.
+list_patients(): Lists all patients with their details.
+list_doctors(): Lists all doctors with their details.
+record_procedure(doctor* doc, patient* pat, procedure* proc): Records a medical procedure performed by a doctor for a patient.
+list_procedures(): Lists all registered medical procedures with details.
+Finally, create a main() function that creates a hospital with at least 3 patients, 2 doctors, and records 2 medical procedures (performed by different doctors for different patients). List the information of patients, doctors, and registered procedures.
+
+Make sure to add specific details to each class and properly handle dynamic resource allocation and memory release in constructors and destructors.

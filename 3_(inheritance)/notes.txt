@@ -38,6 +38,36 @@
 
 ------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - Polymorphism: allows objects of different classes to be treated uniformly through a common interface. The term "polymorphism" means "many forms".
 
 -- é necessario trabalhar com ponteiros para permitir a vinculação dinamica.
