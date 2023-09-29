@@ -1,5 +1,7 @@
 + Inheritances (Derived Classes):
 
+OBS: != COMPOSITION (an object that inherits from another IS AN inherited object. an object that is composed of another HAS AN object in its composition)
+
 -- Useful for code reuse and organization.
 -- Relationship between classes.
 -- A class (child) inherits attributes and methods from another class (parent).
@@ -9,6 +11,7 @@
 -- An object can inherit from one or more classes (Multiple Inheritance).
 -- When a class inherits from another, it inherits its member attributes and functions.
 -- private elements CANT BE ACESSIBLE.
+-- generally the superclass is simpler and more generalized to other classes.
 
 ------------------------------
 
@@ -21,9 +24,8 @@
 ------------------------------
 
 - PROTECTED: halfway between public and private
--- makes elements unreachable to anything outside the class
--- however, unlike private, any class that inherits from this protected class will have access to these elements.
-
+-- makes elements unreachable to anything outside the class.
+-- works similar to private however, but UNLIKE private, any class that inherits from this protected class will HAVE ACESS to these elements.
 
 ------------------------------
 
@@ -37,6 +39,8 @@
 --PUBLIC members become PRIVATE, and protected members become PRIVATE. (public=private, protected=private, private=ERROR)
 
 ------------------------------
+
+
 
 
 
