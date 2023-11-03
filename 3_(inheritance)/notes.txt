@@ -1,3 +1,5 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 + Inheritances (Derived Classes):
 
 OBS: != COMPOSITION (an object that inherits from another IS AN inherited object. an object that is composed of another HAS AN object in its composition)
@@ -131,3 +133,5 @@ public:
 };
 
 --OBS: o metodo virtual puro é o que define a classe ser abstrata
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------

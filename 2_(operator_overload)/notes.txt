@@ -1,3 +1,5 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 + Operator overloading: Is a feature that allows programmers to define custom behavior of operators for custom data types (classes or structures).
                         This means that you can use operators, such as +, -, *, /, ==, !=, etc., with objects of your own classes, giving them specific meanings.
 
@@ -14,17 +16,17 @@ The overload is declared inside the public part of an class.
 }
 
 *Unary*
-<return> operator<op>(){                     //recieves an parameter
+<return> operator<op>(){                     //don't recieves an parameter
     (...)
 }
 
-OBS: is usually used a passage by reference(&) as a parameter
+OBS: is usually used a passage by reference(&) as a parameter(binary)
 OBS: binary operators continue to be binary( x + y // x == y ) and unary continue to be unary ( ++ // -= )
 OBS: can use (object.operator<sign>())
 
----------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-- Functions and Classes friend: 
++ Functions and Classes friend: 
 -- A "friend" function is a function that is allowed to access the private members of a class, even if it is not a member of the class. 
 -- Declare the function as "friend" inside the class.
 -- Are useful when you want specific parts of code, which are not members of the class, to access private information of objects of that class.
@@ -42,7 +44,7 @@ OBS: An friend class is NOT a member of the class. But can access the public and
 
 ---------------------------------------------
 
-I can use functions friend to create an overload operator.
+I can use friend functions to create an overload operator.
 - Is to manipulate cout and cin. (as friend)
 insede class:
 friend ostream& operator<<(ostream&, Class&);
@@ -66,3 +68,5 @@ EXTRA:  Whenever you pass an object as an parameter to a function, it is recomme
 - has to be INSIDE the class, NOT FRIEND.
 
 EXTRA: Recommended to use friend only to overload cin and cout
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
