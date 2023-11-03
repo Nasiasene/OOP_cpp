@@ -30,7 +30,7 @@ class <class_name>{
 // NOTE: I can create several constructors, as long as each one differs in attributes, so it is possible to start a class in different ways, depending on the attributes passed at initialization.
 // NOTE2: I can initialize the constructor in other way:
 // -<name_class>(int dd, int mm, int yy) : d{dd}, m{mm}, y{yy} { }
-// -<name_class>()(int dd, int mm, int yy){d=dd; m=mm; y=yy;}                  //(same).
+// -<name_class>(int dd, int mm, int yy){d=dd; m=mm; y=yy;}                  //(same).
 
 
 * Define methods outside the class: it is necessary to initialize them inside the class (<func_type> <func_name>(attributes);), and then assign them outside ( <func_type> <class_name>::<func_name>(attributes){} )
