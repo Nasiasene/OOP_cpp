@@ -21,7 +21,7 @@ OBS: != COMPOSITION (an object that inherits from another IS AN inherited object
 
 <sub_class> : <inheritances_type> <superclass>{}
 
--- When a class inherit from another, has to initialize the mother class in its constructor
+-- When a class inherit from another, has to initialize the mother class in its constructor!
 
 ------------------------------
 
