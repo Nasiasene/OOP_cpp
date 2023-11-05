@@ -27,8 +27,10 @@ class Complex{
         }
         void set_nums(double rr, double ii){re=rr; im=ii;}
 
+
         //OVERLOAD (to do the same):
-        //Binary:
+
+        //Binary-
         Complex operator+(Complex& cc){
             return Complex(this->re + cc.re, this->im + cc.im);
         }
@@ -37,7 +39,7 @@ class Complex{
             return Complex(re - cc.re, im - cc.im);
         }
 
-        //Unary
+        //Unary-
         Complex& operator++(){  //Post increment  (++x)
             this->im = this->im + 1;
             re +=1;
@@ -51,6 +53,8 @@ class Complex{
             return false;
         }
 
+
+        //Friend functions
         friend void print(Complex& cc);          //FRIEND FUNCTION. IS NOT AN MEMBER.
         friend void print_re(Complex& cc){       //Can be declare inside the class, but still not an member.
             cout << cc.re;
@@ -82,6 +86,8 @@ void operator>>(istream& in, Complex& cc){
     in >> ii;
     cc.set_nums(rr, ii);
 }
+
+
 
 int main(){
     Complex n1(10, 20);
@@ -136,6 +142,4 @@ int main(){
     cin >> n9;
     cout << n9; 
     cout << "\nNew N9: " << int(n9);
-
-
 }
