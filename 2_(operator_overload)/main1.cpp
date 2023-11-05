@@ -31,15 +31,17 @@ class Complex{
         Complex operator+(Complex& cc){
             return Complex(this->re + cc.re, this->im + cc.im);
         }
+
         Complex operator-(Complex& cc){
             return Complex(re - cc.re, im - cc.im);
         }
+
         Complex& operator++(){  //Post increment  (++x)
             this->im = this->im + 1;
             re +=1;
-
             return *this;     //Reference to the self object, used in ++ and --.   //Is util only in case: x = ++y
         }
+        
         bool operator!(){
             if(re == 0 && this->im == 0){
                 return true;
