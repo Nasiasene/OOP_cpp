@@ -42,96 +42,94 @@ OBS: != COMPOSITION (an object that inherits from another IS AN inherited object
 
 ------------------------------
 
+- An object of a subclass is both an instance of the child class and the parent class.
+- If I create an object from an abstract class and make interactions with a subclass that inherits from that abstract class. From the object part of a subclass, only its abstract part is used.
+
+- An object can inherit from two different classes.
+    - If classes inherit from the same abstract class, be aware that the subclass will inherit from this abstract class twice.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
++ Polymorphism: allows objects of different classes to be treated uniformly through a common interface. The term "polymorphism" means "many forms".
 
+- Through polymorphism, different classes that have the same hierarchy can respond to a function in different ways.
+- Allows you to write codes in an even more general way.
+- Remember, in a class hierarchy, it is possible to determine that an object from a superclass receives the values ​​of an object from a subclass,
+  however, it loses the extra information present in the subclass. (the opposite does not happen)
 
+- It is necessary to work with pointers to allow dynamic linking.
+- If I create a pointer of the superclass type(mother) and which points to an object of a subclass(child), this pointer will work as if it were an object of the MOTHER class.
+- A pointer to a base class(superclass) can point to any object in one of its subclasses.
+- It is the type of the pointer that determines what can or cannot be called, not the object being pointed to.
 
+- THROUGH POLYMORPHISM, IF THERE IS A VIRTUAL FUNCTION, ITS VALUE WILL BE DETERMINED BY THE TYPE OF THE OBJECT BEING POINTED TO.
+- When declaring a virtual function in the superclass, it can be overridden by its children.
+- override = reset the function.
 
+------------------------------
 
+- VIRTUAL FUNCTIONS: is a function that is declared in the base class and that can be overridden in derived classes.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- Polymorphism: allows objects of different classes to be treated uniformly through a common interface. The term "polymorphism" means "many forms".
-
--- é necessario trabalhar com ponteiros para permitir a vinculação dinamica.
--- Caso eu crie um ponteiro do mesmo tipo da classe mae e que aponte para um objeto que herde da classe mae esse ponteiro funcionará como se fosse um objeto da classe MÃE.
-
-
--FUNÇÕES VIRTUAIS: é uma função que é declarada na classe base e que pode ser sobrescrita em classes derivadas.
-
--- Isso é fundamental para alcançar o polimorfismo em tempo de execução, onde a chamada de função é resolvida com base no tipo real do objeto em tempo de execução.
--- Declarar a função na classe base com a palavra-chave 'virtual'.
-Definir a mesma função nas classes derivadas usando a palavra-chave 'override'
-
-Class mae{
-    virtual void fazerSom() {
+-- It is crucial to achieve runtime polymorphism, where the function call is resolved based on the actual type of the object at runtime.
+-- Just declare the function in the base class with the 'virtual' keyword.
+   Define the same function in derived classes using the 'override' keyword.
+   If you want, you don't need to call virtual and override in the subclasses, just call the function normally.
+ex:
+Class Animal{
+    virtual void makeSound() {
         (...)
     }
 }
-Class maezinha : public mae {
-    virtual void fazerSom() override {
-        std::cout << "Som genérico de animal" << std::endl;
+Class Dog: public Animal {
+    virtual void makeSound() override {
+        std::cout << "WOOOF" << std::endl;
     }
 }
-Class maezona : public mae{
-    virtual void fazerSom() override {
+Class Cat: public Animal{
+    void makeSound() {
        (...)
     }
 }
 
--- usando funcoes virtuais, quando um ponteiro do tipo da classe mae, aponta para um objeto da classe filha, ele poderá usar as funcoes virtuais da classe filha(o que nao acontece se nao for ponteiro e/ou a funcao nao seja virtual).
-
+-- using virtual functions, when a pointer of the Animal class type points to an object of the child class, it can use the virtual functions of the child class (which does not happen if it is not a pointer and/or the function is not virtual).
 ex:
-Forma* vetor[3];
-vetor[0] = new Retangulo(2, 3, 4);
-vetor[1] = new Forma(1);
-vetor[2] = new Circulo(2, 3);
-
-for (auto x : vetor){
+Shape* vector[3];
+vector[0] = new Rectangle(2, 3, 4);
+vector[1] = new Shape(1);
+vector[2] = new Circle(2, 3);
+for (auto x : vector){
     x.print_info();
 }
+//This way, as circle and rectangle inherit shape, and the print_info function is virtual, this code will print different values.
 
-//Dessa forma, como circulo e rtangulo herdam de forma, e a funcao print_info é virtual, esse codigo printará valores diferentes.
+------------------------------
 
+- Abstract classes: classes that serve ONLY as a blueprint.
 
-- Classes abstratas: classes que servem como blueprint.
--- Não podem instanciar objetos.
--- Servem somente como base para ouras classes.
-
+-- Cannot instantiate objects. (because they are "incomplete")
+-- They only serve as a basis for other classes.
 ex:
-class Forma {
+class Form {
 public:
-    virtual void desenhar() = 0; // Função abstrata //FUNCAO VIRTUAL PURA.
-    virtual double area() const = 0; // Outra função abstrata //FUNCAO VIRTUAL PURA.
+    virtual void draw() = 0; // Abstract function // PURE VIRTUAL FUNCTION.
+    virtual double area() const = 0; // Abstract function // PURE VIRTUAL FUNCTION.
 
-    void mover(int x, int y) {
-        // Implementação concreta para mover a forma
+    void moove(int x, int y) {
+        // Concrete implementation to move the shape
     }
 };
 
---OBS: o metodo virtual puro é o que define a classe ser abstrata
 
---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- NOTE: the pure virtual method is what defines the class to be abstract.
+
+------------------------------
+
+- Pure Virtual Function: is a virtual function in a base class that must be IMPLEMENTED BY ALL derived classes, and does not have an implementation in the base class.
+
+-- Is specified by placing a "= 0".
+-- There is no implementation in the abstract class.
+-- Every concrete class that inherits from an abstract class with a pure abstract function must MANDATORY override these pure functions.
+-- Virtual functions differ from pure virtual functions, as non-pure ones only give the programmer the option to rewrite them, pure ones are mandatory.
+ex:
+virtual double area() = 0; 
