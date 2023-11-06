@@ -1,34 +1,33 @@
+**Exercise: A company's employee management system**
 
-**Exercício: Sistema de gerenciamento de funcionários de uma empresa**
+Consider an employee management system in a company. Create the following classes:
 
-Considere um sistema de gerenciamento de funcionários em uma empresa. Crie as seguintes classes:
-
-1. **`funcionario`** (classe base)
-   - Atributos privados: `nome`, `idade`.
-   - Método construtor para inicializar `nome` e `idade`.
-   - Método `exibir_detalhes()` que exibe informações gerais do funcionário.
-   - Sobrecarga do operador `<<` para exibir detalhes do funcionário.
+1. **`employee`** (base class)
+   - Private attributes: `name`, `age`.
+   - Constructor method to initialize `name` and `age`.
+   - `print_info()` method that displays general information about the employee.
+   - Overloading of `<<` operator to display employee details.
    
-2. **`gerente`** (herda publicamente de `funcionario`)
-   - Atributos privados adicionais: `departamento`, `nivel_acesso`.
-   - Método construtor que chama o construtor da classe base e inicializa o `departamento` e `nivel_acesso`.
-   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de gerentes, incluindo o departamento e o nível de acesso.
-   - Implementa um método público `definir_nivel_acesso()` que permite configurar o nível de acesso do gerente.
+2. **`manager`** (publicly inherits from `employee`)
+   - Additional private attributes: `department`, `access_level`.
+   - Constructor method that calls the base class constructor and initializes `department` and `acess_level`.
+   - Overridden `print_info()` method to display manager-specific information, including department and access level.
+   - Implements a public method `define_nivel_acesso()` that allows you to configure the manager's access level.
 
-3. **`desenvolvedor`** (herda protegido de `funcionario`)
-   - Atributos privados adicionais: `linguagem_programacao`.
-   - Método construtor que chama o construtor da classe base e inicializa a `linguagem_programacao`.
-   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de desenvolvedores, incluindo a linguagem de programação.
+3. **`developer`** (inherits protected from `employee`)
+   - Additional private attributes: `linguagem_programacao`.
+   - Constructor method that calls the base class constructor and initializes the `programming_language`.
+   - Overridden `print_info()` method to display developer-specific information, including programming language.
 
-4. **`analista`** (herda privado de `funcionario`)
-   - Atributos privados adicionais: `projeto_atual`.
-   - Método construtor que chama o construtor da classe base e inicializa o `projeto_atual`.
-   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de analistas, incluindo o projeto atual.
-   - Implementa um método público `alterar_projeto()` que permite aos analistas alterar o projeto atual.
+4. **`analyst`** (inherits private from `employee`)
+   - Additional private attributes: `current_project`.
+   - Constructor method that calls the base class constructor and initializes the `current_project`.
+   - Overridden `print_info()` method to display analyst-specific information, including the current project.
+   - Implements a public method `alterar_projeto()` that allows analysts to change the current project.
 
-5. **`funcionario_estagiario`** (herda de `desenvolvedor` e `analista`)
-   - Atributos privados adicionais: `duracao_estagio`.
-   - Método construtor que chama os construtores das classes base e inicializa a `duracao_estagio`.
-   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de estagiários, incluindo a duração do estágio.
+5. **`EmployeeIntern`** (inherits from `developer` and `analyst`)
+   - Additional private attributes: `duracao_estagio`.
+   - Constructor method that calls the constructors of the base classes and initializes the `duracao_estagio`.
+   - Overridden `print_info()` method to display intern-specific information, including internship duration.
 
-Agora, crie na função main() objetos dessas classes e demonstre as relações de herança e acesso aos membros de cada classe. Certifique-se de criar instâncias de todas as classes e demonstrar como os atributos e métodos herdados são acessados em cada caso.
+Now, create objects from these classes in the main() function and demonstrate the inheritance and access relationships to members of each class. Be sure to create instances of all classes and demonstrate how inherited attributes and methods are accessed in each case.
