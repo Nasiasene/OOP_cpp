@@ -133,3 +133,5 @@ public:
 -- Virtual functions differ from pure virtual functions, as non-pure ones only give the programmer the option to rewrite them, pure ones are mandatory.
 ex:
 virtual double area() = 0; 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
