@@ -1,48 +1,47 @@
-1) Sistema de Streaming
 
-**Objetivo do Exercício:** Criar uma hierarquia de classes que simule um sistema de streaming de música.
+1) Streaming System
 
-1. Crie uma classe abstrata chamada `Musica`, que representará uma música genérica no sistema. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `titulo` para armazenar o título da música.
-   - Um membro de dados privado `artista` para armazenar o nome do artista.
-   - Um construtor que aceite dois parâmetros para inicializar o título e o artista.
-   - Uma função membro virtual pura chamada `tocar()` que será usada para "tocar" a música.
+**Exercise Objective:** Create a class hierarchy that simulates a music streaming system.
 
-2. Crie uma classe chamada `MusicaLocal` que herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `caminhoArquivo` para armazenar o caminho do arquivo da música.
-   - Um construtor que aceite três parâmetros para inicializar o título, o artista e o caminho do arquivo.
-   - Uma implementação da função `tocar()` que "toca" a música local, exibindo uma mensagem que inclui o título, o artista e o caminho do arquivo.
+1. Create an abstract class called `Music`, which will represent a generic song in the system. This class must have the following members:
+   - A private data member `title` to store the song title.
+   - A private `artist` data member to store the artist name.
+   - A constructor that accepts two parameters to initialize the title and artist.
+   - A pure virtual member function called `play()` that will be used to "play" the song.
 
-3. Crie outra classe chamada `MusicaStreaming` que também herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `url` para armazenar a URL da música.
-   - Um construtor que aceite três parâmetros para inicializar o título, o artista e a URL.
-   - Uma implementação da função `tocar()` que "toca" a música de streaming, exibindo uma mensagem que inclui o título, o artista e a URL.
+2. Create a class called `LocalMusic` that publicly inherits from the `Musica` class. This class must have the following members:
+   - A private data member `filepath` to store the song file path.
+   - A constructor that accepts three parameters to initialize the title, artist and file path.
+   - An implementation of the `play()` function that "plays" local music, displaying a message that includes the title, artist, and file path.
 
-4. No `main()`, crie objetos das classes `MusicaLocal` e `MusicaStreaming`, armazene-os em um vetor de ponteiros para `Musica`, e então percorra o vetor, chamando a função `tocar()` para cada música. Isso demonstrará a ligação dinâmica em ação.
+3. Create another class called `StreamingMusic` that also publicly inherits from the `Musica` class. This class must have the following members:
+   - A private `url` data member to store the song URL.
+   - A constructor that accepts three parameters to initialize the title, artist and URL.
+   - An implementation of the `play()` function that "plays" streaming music, displaying a message that includes the title, artist, and URL.
+
+4. In `main()`, create objects of the `LocalMusic` and `StreamingMusic` classes, store them in a vector of pointers to `Musica`, and then traverse the vector, calling the `play()` function for each music. This will demonstrate dynamic binding in action.
 
 --------------------
 
-1) Sistema de Streaming com suporte a Podcast
+2) Streaming System with Podcast support
 
-**Objetivo do Exercício:** Estender o sistema de streaming de música para incluir podcasts, que têm características adicionais, como um apresentador e uma lista de episódios. Além disso, os podcasts podem ser reproduzidos em um modo especial que inclui a introdução e o encerramento do apresentador.
+**Exercise Objective:** Extend the music streaming system to include podcasts, which have additional features such as a host and episode list. Additionally, podcasts can be played in a special mode that includes the host's intro and outro.
 
-1. Crie uma classe `Podcast` que herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `apresentador` para armazenar o nome do apresentador do podcast.
-   - Um membro de dados privado `episodios` para armazenar a lista de episódios do podcast.
-   - Um construtor que aceite três parâmetros para inicializar o título, o artista (neste caso, pode ser a rede ou o produtor do podcast) e o apresentador.
-   - Uma função `adicionarEpisodio()` para adicionar episódios à lista.
-   - Uma implementação da função `tocar()` que "toca" o podcast, exibindo uma mensagem que inclui o título, a rede, o apresentador e a lista de episódios.
+1. Create a `Podcast` class that publicly inherits from the `Music` class. This class must have the following members:
+   - A private data member `host` to store the name of the podcast host.
+   - A private data member `episodios` to store the list of podcast episodes.
+   - A constructor that accepts three parameters to initialize the title, the artist (in this case, it could be the network or the podcast producer), and the presenter.
+   - An `addEpisode()` function to add episodes to the list.
+   - An implementation of the `play()` function that "plays" the podcast, displaying a message that includes the title, network, host, and episode list.
 
-2. Modifique a classe `Musica` para incluir um método protegido `tocarIntro()`. Este método deve exibir uma mensagem genérica indicando que a música está prestes a ser tocada.
+2. Modify the `Musica` class to include a protected method `playIntro()`. This method should display a generic message indicating that the song is about to be played.
 
-3. Na classe `Podcast`, sobrescreva o método `tocarIntro()` para incluir a introdução do apresentador.
+3. In the `Podcast` class, override the `tocarIntro()` method to include the presenter’s introduction.
 
-4. No método `tocar()` da classe `Podcast`, chame primeiro o método `tocarIntro()`, demonstrando assim o uso de métodos protegidos.
+4. In the `play()` method of the `Podcast` class, first call the `playIntro()` method, thus demonstrating the use of protected methods.
 
-5. Crie uma classe `PodcastPremium` que herde privadamente da classe `Podcast`. Esta classe representa um podcast premium que requer uma assinatura para ser tocado.
-   - Adicione um membro de dados privado `preco` para representar o preço da assinatura.
-   - Forneça métodos públicos para acessar as funcionalidades do podcast (como tocar e adicionar episódios), demonstrando assim a herança privada.
+5. Create a `PodcastPremium` class that privately inherits from the `Podcast` class. This class represents a premium podcast that requires a subscription to play.
+   - Add a private data member `price` to represent the subscription price.
+   - Provide public methods to access podcast functionality (such as playing and adding episodes), thus demonstrating private inheritance.
 
-6. No `main()`, crie objetos das classes `MusicaLocal`, `MusicaStreaming` e `Podcast`, armazene-os em um vetor de ponteiros para `Musica`, e então percorra o vetor, chamando a função `tocar()` para cada música. Isso demonstrará a ligação dinâmica em ação.
-
-
+6. In `main()`, create objects of the classes `LocalMusic`, `StreamingMusic` and `Podcast`, store them in a vector of pointers to `Musica`, and then traverse the vector, calling the `play() function for each song. This will demonstrate dynamic binding in action.
