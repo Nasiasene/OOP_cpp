@@ -1,0 +1,89 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Exception Handling: is a technique used to deal with exceptional situations or errors that may occur during the execution of a program.
+
+- These are unplanned events that can occur during the execution of a program, such as division by zero errors, invalid memory access, file read/write failures, among others.
+- Exception handling is an important technique for dealing with errors in a controlled manner and maintaining program robustness.
+- Make sure you use appropriate exception handling in your code to handle exceptional situations elegantly and avoid unexpected failures.
+- Import the <stdexcept> library to catch these errors.
+
+- Exception handling in C++ is based on three main components: try, catch, and throw. Here's an overview of how these components work:
+
+    - TRY: The try block is used to wrap code that can throw an exception.
+           When an exception occurs within this block, the control flow is transferred to the appropriate part of the catch block.
+           The try block must be followed by one or more catch blocks.
+
+
+    - CATCH: Catch blocks are used to handle specific exceptions.
+             A TRY can have several CATCH blocks depending on the errors that occur in the try block
+             Each catch block corresponds to a specific exception type.
+             When an exception is thrown in the try block, the code inside the corresponding catch block is executed.
+             Recieves an parameter, which will be the exception.
+    --ex:
+           try {
+                // Code that can throw an exception
+            }
+            catch (ExceptionType1& e1) {
+                // Exception handling of ExceptionType1 type
+            } 
+            catch (ExceptionType2& e2) {
+                // Exception handling of ExceptionType2 type
+            }
+
+    - THROW: The throw keyword is used to throw an exception manually from any point in the program.
+             A custom exception can be created as an instance of a class that inherits from the std::exception class or its subclasses.
+             It basically serves to "generate an error".
+             -- EX: throw MyExeption("ERROR!");
+
+
+- In addition to these basic components, C++ offers the std::exception class and its subclasses for creating custom exceptions.
+- You can create your own exception classes by inheriting from std::exception or its subclasses and then throw instances of those classes.
+
+
+- The class runtime_error() inherits from an class exception().
+- The exception() class it's the default exceptionerror for all the exeptions.
+- There are different types of execution errors.
+- A class that derives from runtime_error() defines just one constructor that passes a string containing an error message to the runtime_error() constructor.
+- All classes that derive from the exception() superclass contain a virtual function ".what()", which returns the error string of an exception object.
+
+- If I want, I can create my own exceptions in the form of classes that inherit in some way from the superclass exeption().
+- Any function that has problems can be executed (such as IndexError(), OutOfRange(), etc).
+
+
+- Some exeptions:
+    - bad_alloc(): when memory cannot be allocated.
+    - runtime_error()
+        - overflow_error()
+        - underflow_error()
+    - logic_error()
+        - invalid_argument()
+        - length_error()
+        - out_of_range() 
+    - ...
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Templates: allows you to create generic code that can be used with different types of data.
+             They allow you to write algorithms and data structures that work with different types, making your code more flexible and reusable.
+
+- In short, a class template is a class that is written in a generic way and that works for several different types of data.
+- There may be templates for CLASSES or FUNCTIONS.
+
+-- Function Templates:
+    - When we have a function that works identically for several types of data, we can create a generic function that works for different types of data,
+      instead of overloading this function for each specific type of data.
+    - The definition starts with the word template, followed by the list of different template parameters, which can have any name.
+        -ex:
+        template<typename T, typename A>
+        T example(T var1, A var2){...}
+    
+-- Classes Templates:
+    - Works the same way as functions.
+    - When creating an instance of this class, it is necessary to define its data type: Class(<d_type>) obj;
+
+- A template can receive different parameters. (template<typename T, typename A).
+- A template can have parameters of a specific type. (template<typename T, int Size);
+    - In this case, when instantiating a class in this way, it is necessary to define the parameters: ClassName<type1, int> name.
+- A template can have a default type. (template<typename A=int>).
+- I can specialize a template for a specific type. (template<> type)
+--------------------------------------------------------------------------------------------------------------------------------------------------------
