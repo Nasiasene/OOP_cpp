@@ -22,8 +22,9 @@ class Person{
 };
 
 class Student : public Person{
-    string course;
-    int code;
+    protected:
+        string course;
+        int code;
 
     public:
         Student(string na, int aa, string cour, int co) : Person{na, aa}{
@@ -52,6 +53,20 @@ class Professor : public Person{
         }
 };
 
+class Professor_Student: public Professor, public Student{
+    bool is_active;
+
+    public:
+        Professor_Student(string na, int aa, string inst, int yw, string cour, int co) : Professor(na, aa, inst, yw), Student(na, aa, cour, co) {
+            is_active = true;
+        }
+
+        void print_info(){
+            Professor::print_info();
+            cout << "Course: " << Student::course << "\nCode: " << code; //As the course and code variables are protected, I can use them in their subclasses.
+        }
+};
+
 
 
 int main(){
@@ -69,6 +84,9 @@ int main(){
     Person p2 = pr1;           //Objects from the parent class can receive the same value as objects from the child class, however, they will only have the values ​​present in the parent class.
     //OBS: the reverse does not occur ((Professor pr1 = Person p1) = ERROR)
     p2.print_info();
+
+    Professor_Student ps("Bidu", 30, "UFPB", 12, "CC", 320221678);
+    ps.print_info();
 
     return 0;
 }
