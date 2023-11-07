@@ -1,0 +1,58 @@
+(Questão 2 - 8,0 pontos) Sistema de Controle de uma Vinícola
+ 
+Imagine que você está desenvolvendo um sistema de controle para uma vinícola. 
+O sistema deve permitir o gerenciamento de diferentes tipos de vinhos, uvas, 
+clientes e vendas.
+ 
+Classes sugeridas:
+ 
+1. **uva**
+   - Atributos: nome (string), safra (int), preço por quilo (double).
+   - Métodos: construtor, getters e setters.
+ 
+2. **vinho** (classe base, abstrata)
+   - Atributos: nome (string), safra (int), volume (double), uva (ponteiro para
+     a classe Uva), quantidade (int, variável de classe)
+   - Métodos: construtor, getters e setters, exibir informações (virtual), 
+     get_quantidade (método de classe)
+ 
+3. **vinho_tinto** (herança pública de vinho)
+   - Atributos: nível de tanino (float), quantidade de polifenois (float)
+   - Métodos: construtor, getters e setters, sobrescrever exibir informações
+ 
+4. **vinho_branco** (herança pública de Vinho)
+   - Atributos: subtipo (string, ex. "Seco" ou "Suave")
+   - Métodos: construtor, getters e setters, sobrescrever exibir informações
+ 
+5. **cliente**
+   - Atributos: nome (string), sobrenome (string), email (string), telefone 
+   (string).
+   - Métodos: construtor, getters e setters.
+ 
+6. **venda**
+   - Atributos: cliente (ponteiro para a classe cliente), vinho (ponteiro para
+     a classe vinho), quantidade (int).
+   - Métodos: construtor, getters e setters, calcular_total() para calcular o 
+     valor total da venda.
+ 
+7. **vinicola** (singleton)
+   - Atributos: lista de uvas (vector de uva), lista de vinhos (vector de
+     vinho), lista de clientes (vector de cliente), lista de vendas (vector 
+     de venda).
+   - Métodos: adicionar uva, adicionar vinho, adicionar cliente, registrar 
+     venda, calcular soma de todas as vendas.
+ 
+8. **vinoteca** (classe genérica usando templates)
+   - Atributos: lista de vinhos (vector de T), onde T é o tipo de vinho (pode 
+     ser vinho_tinto, vinho_branco, etc.).
+   - Métodos: adicionar vinho, listar vinhos, encontrar vinho por safra, 
+     calcular o valor total do estoque.
+ 
+Tratamento de exceções: use o tratamento de exceções para garantir que não
+sejam cadastrados vinhos sem uva definida ou ano de safra inválido.
+ 
+Faça uma função main onde cria-se uma vinicola que tenha 3 diferentes 
+vinhos em estoque, de 3 uvas diferentes; faça 2 vendas para 2 clientes 
+distintos. Crie 2 vinotecas: uma para vinhos brancos e outra para vinhos
+tintos, cada uma com 3 vinhos distintos; realize a busca de vinhos de uma
+safra específica e calcule e exiba o valor das duas vinotecas.

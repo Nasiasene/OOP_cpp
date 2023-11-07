@@ -1,0 +1,47 @@
+(Questão 1 - 8,0 pontos) Sistema de Controle de uma Fábrica de Calçados
+ 
+Imagine que você está desenvolvendo um sistema de controle para uma fábrica de
+calçados. O sistema deve permitir o gerenciamento de diferentes tipos de 
+calçados, desde tênis esportivos até sapatos sociais. Nesse exercício, você 
+pode usar a classe "calçado" como uma classe base para representar todos os 
+tipos de calçados.
+ 
+Classes sugeridas:
+ 
+1. **fornecedor**
+   - Atributos: nome (string), cnpj (string).
+   - Métodos: construtor, getters e setters, listar produtos do fornecedor.
+ 
+2. **calcado** (classe base, abstrata)
+   - Atributos: marca (string), modelo (string), cor (string), tamanho (int),
+     preço (double), fornecedor (ponteiro para fornecedor).
+   - Métodos: construtor, getters e setters, exibir informações (virtual)
+ 
+3. **tenis** (herança pública de calcado)
+   - Atributos: tipo de esporte (string).
+   - Métodos: construtor, getters e setters, sobrescrever o método de exibir 
+     informações.
+ 
+4. **sapato_social** (herança pública de calcado)
+   - Atributos: material (string).
+   - Métodos: construtor, getters e setters, sobrescrever o método de exibir 
+     informações.
+ 
+5. **estoque**
+   - Atributos: lista de produtos em estoque (vector de calcado).
+   - Métodos: construtor, destrutor, adicionar e remover produtos ao/do estoque,
+     calcular o valor total do estoque, encontrar produtos no estoque.
+ 
+6. **fabrica** (singleton)
+   - Atributos: fornecedores (map de fornecedor, string como chave), estoque 
+     (instância de estoque).
+   - Métodos: construtor, destrutor, adicionar e remover fornecedor, adicionar
+     e remover produto ao/do estoque, calcular o valor total do estoque, 
+     encontrar produtos no estoque.
+ 
+Tratamento de exceções: faça com que só produtos com preços positivos possam 
+ser incluídos no estoque - use o tratamento de exceções para garantir isso.
+ 
+Uso das classes: implemente um sistema com um menu que permita: cadastrar, 
+remover e listar fornecedores; cadastrar, remover e listar tênis e sapatos
+sociais no estoque; exibir valor total do estoque; buscar produtos no estoque;
