@@ -86,4 +86,14 @@
     - In this case, when instantiating a class in this way, it is necessary to define the parameters: ClassName<type1, int> name.
 - A template can have a default type. (template<typename A=int>).
 - I can specialize a template for a specific type. (template<> type)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ Singleton: design pattern that aims to ensure that A CLASS HAS JUST A SINGLE INSTANCE and that provides a global access point to that instance.
+
+- Singleton is implemented in such a way that the class constructor is private, which prevents other classes from creating instances of it directly.
+- Instead, the class provides a static method (usually called getInstance) that returns the single instance, creating it on the first call and returning the same instance on subsequent calls.
+- The class itself carries its instance.
+- The singleton class will be used as a pointer throughout the code.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------
