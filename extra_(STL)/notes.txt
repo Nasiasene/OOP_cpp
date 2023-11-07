@@ -1,0 +1,212 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
++ STL: Standard Template Library.
+
+- Provides a collection of classes and functions for implementing common data structures and algorithms.
+- STL is a part of the C++ standard library, and its purpose is to provide reusable and efficient components for building C++ programs.
+
+-- The STL is made up of several main components:
+    - Containers: These are classes that STORE and organize DATA.
+                  There are several types of containers, such as vectors, lists, queues, stacks, maps, sets and others.
+                  Each has its own characteristics and methods for storing and manipulating data.
+
+    - Algorithms: STL offers a variety of algorithms to PERFORM OPERATIONS on containers, such as sorting, searching, iteration, transformation, among others.
+                  These algorithms are designed to work with different types of containers, which makes the code more generic.
+
+    - Iterators: Iterators are objects that provide a WAY TO TRAVERSE the elements in a container.
+                 They can be used in conjunction with algorithms to traverse and manipulate container elements.
+                 They are basically pointers that point to the first element of a container.
+
+---------------------------------------------------------------------------------
+
+-- <vector>: is a generic class that can store elements of any data type. (CONTAINER)
+
+- The vector is implemented internally as a dynamically allocated array. 
+- As you add elements to the vector and it exceeds its current capacity, it allocates a new, larger array, copies the existing elements to the new array, and frees the old one. 
+- This allows the vector to dynamically grow as needed.
+
+- Main features:
+    - Sequential: The elements in a vector are stored in a sequential order, and each element has an index associated with it.
+    - Resizable: You can easily add or remove elements from the vector without worrying about manual memory management.
+    - Random Access: Vector supports random access to elements through indices. This means you can access any element directly based on the index, making element retrieval very efficient.
+
+- Common Operations:
+    - Adding Elements: You can add elements using the push_back method, which places an element at the end of the vector.
+    - Removing Elements: You can remove elements from the end using pop_back or at a specific position with erase.
+    - Size and Capacity: You can check the current size of the vector using size() and the current capacity (allocated space) using capacity().
+    - Iteration: You can use iterators to iterate through the elements of the vector. 
+    - Sorting: You can sort elements using functions like std::sort.
+
+- Loop:
+    1:
+        for(<datatype> i : array) {     // ":" = in
+            cout << i;
+        }
+
+    2:
+        for (auto i = 0; i < numbers.size(); ++i) {
+            cout << numbers[i];
+        }
+
+    3. 
+        for (vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
+            cout << *it;
+        }
+
+    4.
+        for (auto it = numbers.begin(); it != numbers.end(); ++it) {
+            int num = *it;
+            std::cout << num << " ";
+        }
+
+    5.
+        std::for_each(numbers.begin(), numbers.end(), [](int num) {
+            std::cout << num << " ";
+        });
+
+
+--- push_back(): Adds an element to the end of the vector.
+--- pop_back():  Removes the last element from the vector.
+--- size():      Returns the number of elements currently in the vector.
+--- clear():     Removes all elements from the vector, leaving it empty.
+--- erase():     Removes one or multiple elements from the vector based on a position or range. (vector.erase(vector.begin() + index))
+--- insert():    Inserts an element or range of elements at a specific position. (vector.insert(vector.begin() + index))
+--- resize():    Changes the size of the vector. Newly added elements can be populated with an optional default value.
+--- swap():      Swaps the contents of two vectors. (a.swap(b))
+--- begin():     Returns an iterator pointing to the first element of the vector.
+--- end():       Returns an iterator pointing to the position AFTER the last element of the vector.
+
+---------------------------------------------------------------------------------
+
+-- <algorithm>: provides a rich set of algorithms that can be applied to containers or ranges of elements.
+
+- These algorithms are efficient and optimized implementations for several common operations such as sorting, searching, iteration, and element transformation.
+
+-- Iterators: Most algorithms take ranges of elements or containers as input, specified using iterators.
+              It is important to provide the iterators that define the range of elements on which the algorithm should operate.
+              Iterators can be begin() and end() of a container, a pair of iterators, or a single iterator, depending on the algorithm.
+
+-- Generic functions: STL algorithms are designed to be generic and work with a wide variety of types and containers, thanks to the use of templates.
+
+-- Efficient operations: STL is highly optimized, and algorithms are implemented efficiently to achieve the best possible performance.
+
+
+--- sort():     Sorts a range of elements in ascending order or using a custom comparator. (sort(numbers.begin(), numbers.end());)
+--- find():     Searches a range for a value and returns an iterator to the first occurrence. (find(numbers.begin(), numbers.end(), 9);)
+--- for_each(): Applies a function to each element in a range. (for_each(numbers.begin(), numbers.end(), [](int num) {std::cout << num << " ";});)
+
+---------------------------------------------------------------------------------
+
+-- <deque> (double-ended queue): A deque is a data structure similar to a vector, but with more efficient insertion and removal operations at the ends (start and end).
+
+- Efficient insertion and removal at the ends: The main advantage of a deck is its ability to perform efficient insertions and removals at both the beginning and end.
+                                               You can use push_back(), push_front(), pop_back(), and pop_front().
+- Access to elements: The elements of a deque can be accessed through indexes, in the same way as a vector.
+- Versatility: Deques are versatile and are useful whenever you need a data structure that allows efficient insertions at both the beginning and end.
+               They are suitable for implementing queues, stacks, circular buffers and more.
+
+- Although deques are efficient in terms of insertion and removal at the ends, they can have some additional memory overhead and may not be as efficient as vectors for random accesses to elements in the middle of the sequence. However, they are an excellent option when end insertion performance is a critical factor.
+
+---------------------------------------------------------------------------------
+
+-- <list>: provides a data structure called "doubly linked list".
+
+- A doubly linked list is a linear sequence of elements in which each element is connected to two other elements: one before and one after.
+
+- Efficient insertion and removal: The main advantage of a doubly linked list is the ability to perform efficient insertion and removal at any position, not just the beginning and end.
+                                   You can use functions like push_back(), push_front(), insert(), pop_back(), pop_front(), and erase().
+
+- Access to elements: The elements of a list can be accessed ONLY (no index) through iterators, as lists do not offer access through indexes.
+                      Iterators are the primary way to traverse and access elements in a list.         
+
+- Versatility: The lists are extremely versatile and efficient for insertions and removals in any position.
+               They are useful for implementing data structures such as stacks, queues, linked lists, and for solving problems that require many insertions and deletions at arbitrary positions.
+
+- Limitations: Although lists offer significant advantages in terms of insertion and removal, they have disadvantages such as less efficient access to elements by indexes due to the nature of pointers.
+               Therefore, if you need frequent random access to elements, other containers such as vectors or deques may be more appropriate.
+
+---------------------------------------------------------------------------------
+
+-- Container adapters(<stack>, <queue> ...): are classes that encapsulate a container and provide an interface for just a set of container functions.
+
+- They do not support the use of ITERATORS and do not allow random access to elements (index).
+
+-- STACK: The stack class is an adapter that provides an interface to an underlying container, usually a deque. 
+         The stack follows the "Last-In, First-Out" (LIFO) principle, which means that the last element inserted is the first to be removed. 
+         The main operations supported by the stack are push(), pop(), top(), empty(), and size(). 
+         The stack is useful when you want to create a stack of elements, such as when evaluating mathematical expressions or when implementing algorithms that require LIFO processing.
+
+-- QUEUE: The std::queue class is an adapter that provides an interface to an underlying container, usually a std::deque. 
+         The queue follows the "First-In, First-Out" (FIFO) principle, which means that the first element inserted is the first to be removed. 
+         The main operations supported by the queue are push(), pop(), front(), back(), empty(), and size(). 
+         Queues are useful for modeling first-come, first-served processing tasks, such as job scheduling or queue processing.
+
+-- PRIORITY_QUEUE: The std::priority_queue class is an adapter that provides an interface to an underlying container, usually a std::vector. 
+                  The priority_queue is used to create a priority queue, where the element with the highest priority is always at the top. 
+                  This is useful for solving problems where you need to treat elements based on their priority, such as graph search algorithms. 
+                  The main operations supported by priority_queue include push(), pop(), top(), empty(), and size().
+
+
+- In summary, container adapters such as stack, queue, and priority_queue provide convenient interfaces to underlying containers, allowing you to easily use these data structures in specific situations.
+- They are useful in a variety of scenarios, from managing tasks in a queue to implementing high-priority data structures.
+
+---------------------------------------------------------------------------------
+
+-- <map>: is an associative container that implements a collection of key/value pairs.
+
+- Each element in a std::map is a pair, where the key is unique and associated with a value.
+- Keys are used to access values ​​efficiently.
+
+- map is composed of std::pair, a pair consists of two elements std::pair.first and std::pair.second
+
+- Main features and functionalities:
+    - Ordered collection: Elements are stored in an ordered manner based on their keys. 
+                          This means that elements are always organized, making search, insertion and deletion operations efficient.
+    - Unique keys: Each key in a std::map is unique. 
+                   Duplicate keys cannot exist in the same map instance.
+    - Efficient insertion and deletion: std::map provides efficient operations for inserting and removing elements since elements are organized based on their keys.
+    - Efficient search: Searching for a value associated with a key is very efficient, since std::map keeps its elements organized.
+    - Iteration: You can iterate through the elements of std::map in order of their keys.
+    - Key-value association: Each element in the map consists of a key-value pair, where the key is used to access the corresponding value.
+
+
+--- insert(pair): Inserts a key-value pair into the map structure.
+--- emplace(key, value): Inserts a new pair directly into the map.
+--- operator[]: Allows the insertion or updating of a value associated with a key.
+--- at(key): Accesses the value associated with the specified key and raises an exception if the key does not exist.
+--- find(key): Finds an element with the specified key and returns an iterator to it, or an iterator to the end if the key is not found.
+--- count(key): Returns the number of elements with the specified key (0 or 1, since keys are unique).
+--- erase(key): Removes an element with the specified key.
+--- clear(): Removes all elements from the map.
+--- begin(): Returns an iterator to the first element in the map.
+--- end(): Returns an iterator to the element after the last element in the map.
+--- for_each(lambda): Allows iteration through all map elements using a lambda function.
+--- empty(): Checks if the map is empty.
+--- size(): Returns the number of elements in the map.
+--- lower_bound(key): Returns an iterator to the first element with key not less than the specified key.
+--- upper_bound(key): Returns an iterator to the first element with key strictly greater than the specified key.
+--- equal_range(key): Returns a pair of iterators representing a range containing all elements with the specified key.
+--- swap(): Allows the exchange of content between two maps.
+
+- Elements in a std::map are automatically sorted by their keys in ascending order. The map uses a binary search tree to maintain this ordering.
+- You can compare two maps with the == and != operators to see if they are the same or different.
+
+---------------------------------------------------------------------------------
+
+-- <multimap>: is a variation of std::map.
+
+- While std::map allows each key to be associated with a single value, std::multimap allows a single key to be associated with multiple values. 
+- This makes it useful when you need to associate multiple pieces of information with a single key.
+
+- Main features and functionalities:
+    - Repeated keys: Unlike std::map, std::multimap allows repeated keys. 
+                     This means that the same key can be associated with multiple values.
+    - Ordered collection: Just like std::map, std::multimap keeps its elements organized based on keys. 
+                          This makes search, insertion, and deletion operations efficient.
+    - Efficient insertion: You can insert repeated key-value pairs smoothly into std::multimap.
+    - Efficient search: Searching for all values ​​associated with a key is efficient, since std::multimap keeps the elements organized.
+    - Iteration: You can iterate through the elements of std::multimap in order of their keys.
+
+- std::multimap is useful when you need to associate multiple pieces of information with a single key and allows you to handle key duplicates efficiently.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
