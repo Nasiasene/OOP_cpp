@@ -1,0 +1,39 @@
+Sistema de gerenciamento de um restaurante 
+ 
+- O sistema deve permitir o gerenciamento das seguintes informações:
+ 
+* Cliente: informações sobre um cliente do restaurante
+* Item: um prato, bebida ou sobremesa
+* Cardápio: uma coleção de itens (pratos, bebidas e sobremesas) oferecidos
+  pelo restaurante.
+* Reserva: uma reserva de mesa feita por um cliente.
+* Pedido: um pedido feito por um cliente.
+* Restaurante: cardápio, coleção de pedidos e reservas. 
+ 
+- Crie as classes com seus atributos e métodos de acordo com o descrito acima
+(acrescente atributos e métodos quando achar necessário).
+ 
+- Use os seguintes conceitos de programação orientada a objetos:
+ 
+* Declaração de classes: crie classes para representar os elementos 
+  descritos. (2,0)
+* Instanciação de objetos: crie objetos dessas classes para representar 
+  instâncias específicas. (1,0)
+* Arrays de objetos: use arrays para armazenar coleções de itens (no cardápio) 
+  e de pedidos e reservas (na classe restaurante). (2,0)
+* Métodos construtores e destrutores: use métodos construtores para inicializar
+  os atributos dos objetos e métodos destrutores para liberar recursos alocados
+  pelos objetos. (1,0)
+* Atributos alocados dinamicamente: use atributos alocados dinamicamente para 
+  armazenar informações cujo tamanho não é conhecido em tempo de compilação. (1,0)
+* Diferentes tipos de composição: use composição e agregação para criar 
+  relacionamentos entre as classes. (1,5)
+ 
+ 
+- Faça uma função main de tal forma que a verificar as seguintes funcionalidades 
+(1,5):
+ 
+* Cadastro: permitir o cadastro de novos itens no cardápio, reservas e pedidos.
+* Gerenciamento de reservas: permitir a visualização de reservas cadastradas.
+* Gerenciamento de pedidos: permitir a visualização de pedidos registrados.
+ 
